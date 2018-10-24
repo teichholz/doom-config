@@ -7,6 +7,22 @@
 (add-to-list 'default-frame-alist
              '(ns-appearance . dark))
 
+
+(setq mac-command-modifier 'meta
+      mac-option-modifier  'none)
+
+(setq doom-font (font-spec :family "Menlo" :size 18))
+
+
+(setq helm-locate-command
+      (case system-type
+        ('gnu/linux "locate -i -r %s")
+        ('berkeley-unix "locate -i %s")
+        ('windows-nt "es %s")
+        ('darwin "mdfind -name %s %s")
+        (t "locate %s")))
+
+
 (doom! :feature
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        eval              ; run code, run (also, repls)
@@ -105,7 +121,7 @@
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ;
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
-       ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
+       javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;latex             ; writing papers in Emacs has never been so fun
        ;;ledger            ; an accounting system in Emacs
@@ -134,7 +150,7 @@
        (sh +fish)        ; she sells (ba|z|fi)sh shells on the C xor
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
-       ;;web               ; the tubes
+       web               ; the tubes
        ;;vala              ; GObjective-C
 
        ;; Applications are complex and opinionated modules that transform Emacs
@@ -151,7 +167,7 @@
 
        :collab
        ;;floobits          ; peer programming for a price
-       ;;impatient-mode    ; show off code over HTTP
+       impatient-mode    ; show off code over HTTP
 
        :config
        ;; For literate config users. This will tangle+compile a config.org
