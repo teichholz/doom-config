@@ -13,6 +13,10 @@
 
 (setq doom-font (font-spec :family "Source Code Pro" :size 18))
 
+(helm-autoresize-mode 1)
+(setq helm-autoresize-min-height 35
+      helm-autoresize-max-height 35)
+
 
 (setq helm-locate-command
       (case system-type
