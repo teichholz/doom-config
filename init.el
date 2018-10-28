@@ -11,7 +11,7 @@
 (setq mac-command-modifier 'meta
       mac-option-modifier  'none)
 
-(setq doom-font (font-spec :family "Menlo" :size 18))
+(setq doom-font (font-spec :family "Source Code Pro" :size 18))
 
 
 (setq helm-locate-command
@@ -49,7 +49,7 @@
        ;;deft              ; notational velocity for Emacs
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
-       doom-modeline     ; a snazzy Atom-inspired mode-line
+       ;;doom-modeline     ; a snazzy Atom-inspired mode-line
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
        evil-goggles      ; display visual hints when editing in evil
        ;;fci               ; a `fill-column' indicator
