@@ -42,7 +42,6 @@
      additional
      (additional-motions normal)
      additional-insert
-     mark
      (additional-wrap normal insert)
      (escape insert))))
 
@@ -71,8 +70,8 @@
 
        :ui
        ;;deft              ; notational velocity for Emacs
-       doom        ; what makes DOOM look the way it does
-       doom-dashboard     ; a nifty splash screen for Emacs
+       doom              ; what makes DOOM look the way it does
+       doom-dashboard    ; a nifty splash screen for Emacs
        ;; doom-modeline     ; a snazzy Atom-inspired mode-line
        evil-goggles
                                         ; display visual hints when editing in evil
@@ -93,8 +92,8 @@
        window-select                    ; visually switch windows
 
        :editor
-       (format +onsave)          ; automated prettiness
-       multiple-cursors          ; editing in many places at once
+       (format +onsave)                 ; automated prettiness
+       multiple-cursors                 ; editing in many places at once
        ;;parinfer                  ; turn lisp into python, sort of
        rotate-text               ; cycle region at point between text candidates
        lispy
@@ -106,7 +105,7 @@
        eshell                     ; a consistent, cross-platform shell (WIP)
        hideshow                   ; basic code-folding support
        imenu                      ; an imenu sidebar and searchable code index
-       term              ; terminals in Emacs
+       term                       ; terminals in Emacs
        vc                         ; version-control and Emacs, sitting in a tree
 
        :tools
@@ -135,7 +134,7 @@
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
        ;;csharp            ; unity, .NET, and mono shenanigans
-       data  ; config/data formats
+       data   ; config/data formats
        ;;erlang            ; an elegant language for a more civilized age
        ;;elixir            ; erlang done right
        ;;elm               ; care for a cup of TEA?
