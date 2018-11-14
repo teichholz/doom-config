@@ -2,3 +2,4 @@
 ;;; ~/.doom.d/packages.el
 
 (package! dash-at-point)
+(package! winum)
