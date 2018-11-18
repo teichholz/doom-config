@@ -1,6 +1,10 @@
 ;; gets loaded after any modules
 
-(def-package! dash-at-point)
+(def-package! dash-at-point
+  :config
+  (add-to-list 'dash-at-point-mode-alist '(web-mode . "html, css"))
+  (add-to-list 'dash-at-point-mode-alist '(racket-mode . "racket")))
+
 (def-package! winum
   :init
   (setq winum-auto-setup-mode-line nil)
@@ -28,6 +32,16 @@
 (map!
  :after cc-mode
  :map (c-mode-map cpp-mode-map)
+ :n "K" #'dash-at-point)
+
+(map!
+ :after web-mode
+ :map (web-mode-map)
+ :n "K" #'dash-at-point)
+
+(map!
+ :after racket-mode
+ :map (racket-mode-map)
  :n "K" #'dash-at-point)
 
 (map!

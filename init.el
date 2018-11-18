@@ -13,6 +13,7 @@
       mac-option-modifier  'none)
 
 (setq doom-font (font-spec :family "Source Code Pro" :size 18))
+(setq doom-localleader-key ",")
 
 (after! helm-mode 
 	(helm-autoresize-mode 1)
@@ -29,7 +30,7 @@
         (t "locate %s")))
 
 (add-hook! lisp-mode #'lispy-mode)
-
+(setq tab-always-indent 'complete)
 (after! lispyville
   (lispyville-set-key-theme
    '((operators normal)
@@ -47,7 +48,7 @@
 
 
 (doom! :feature
-       ;;debugger          ; FIXME stepping through code, to help you add bugs
+       debugger          ; FIXME stepping through code, to help you add bugs
        eval                  ; run code, run (also, repls)
        (evil +everywhere)    ; come to the dark side, we have cookies
        file-templates        ; auto-snippets for empty files
