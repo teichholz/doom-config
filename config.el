@@ -40,6 +40,11 @@
  :n "K" #'dash-at-point)
 
 (map!
+ :after css-mode
+ :map (css-mode-map)
+ :n "K" #'dash-at-point)
+
+(map!
  :after racket-mode
  :map (racket-mode-map)
  :n "K" #'dash-at-point)
