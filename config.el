@@ -29,6 +29,8 @@
   (add-to-list 'winum-assign-functions #'winum-assign-9-to-calculator-8-to-flycheck-errors)
   (add-to-list 'winum-assign-functions #'winum-assign-0-to-neotree))
 
+(setq doom-font (font-spec :family "Source Code Pro" :size 22))
+
 (map!
  :after cc-mode
  :map (c-mode-map cpp-mode-map)
@@ -54,4 +56,12 @@
  :leader
  :n "f l" #'helm-locate)
 
+(map!
+ :after cc-mode
+ :map (c-mode-map cpp-mode-map)
+ :n "g h" #'ff-find-other-file)
 
+(map!
+ :after company-mode
+ :map company-mode-map
+ :i "M-c" #'+company/complete)

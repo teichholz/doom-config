@@ -3,3 +3,4 @@
 
 (package! dash-at-point)
 (package! winum)
+(package! exec-path-from-shell :disable t)

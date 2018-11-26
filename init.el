@@ -8,17 +8,16 @@
 (add-to-list 'default-frame-alist
              '(ns-appearance . dark))
 
-
 (setq mac-command-modifier 'meta
       mac-option-modifier  'none)
 
-(setq doom-font (font-spec :family "Source Code Pro" :size 18))
 (setq doom-localleader-key ",")
 
+
 (after! helm-mode 
-	(helm-autoresize-mode 1)
-	(setq helm-autoresize-min-height 35
-	      helm-autoresize-max-height 35))
+  (helm-autoresize-mode 1)
+  (setq helm-autoresize-min-height 35
+	    helm-autoresize-max-height 35))
 
 
 (setq helm-locate-command
@@ -48,7 +47,7 @@
 
 
 (doom! :feature
-       debugger          ; FIXME stepping through code, to help you add bugs
+       debugger              ; FIXME stepping through code, to help you add bugs
        eval                  ; run code, run (also, repls)
        (evil +everywhere)    ; come to the dark side, we have cookies
        file-templates        ; auto-snippets for empty files
@@ -129,7 +128,10 @@
 
        :lang
        ;;assembly          ; assembly for fun or debugging
-       (cc +irony +rtags)        ; C/C++/Obj-C madness
+       (cc
+        ;; +irony
+        ;; +rtags
+        )                ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
        common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
@@ -167,7 +169,7 @@
        ;;purescript        ; javascript, but functional
        python              ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
-       racket            ; a DSL for DSLs
+       racket                       ; a DSL for DSLs
        ;;rest              ; Emacs as a REST client
        ;;ruby              ; 1.step do {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        ;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
@@ -194,6 +196,14 @@
        ;;floobits          ; peer programming for a price
        impatient-mode                   ; show off code over HTTP
 
+       :completion
+       (lsp
+        +cpp
+        +python
+        ;; +css
+        +sh
+        +javascript
+       )
        :config
        ;; For literate config users. This will tangle+compile a config.org
        ;; literate config in your `doom-private-dir' whenever it changes.
