@@ -3,7 +3,8 @@
 (def-package! dash-at-point
   :config
   (add-to-list 'dash-at-point-mode-alist '(web-mode . "html, css"))
-  (add-to-list 'dash-at-point-mode-alist '(racket-mode . "racket")))
+  (add-to-list 'dash-at-point-mode-alist '(racket-mode . "racket"))
+  add-to-list 'dash-at-point-mode-alist '(python-mode . "python"))
 
 (def-package! winum
   :init
@@ -29,6 +30,8 @@
   (add-to-list 'winum-assign-functions #'winum-assign-9-to-calculator-8-to-flycheck-errors)
   (add-to-list 'winum-assign-functions #'winum-assign-0-to-neotree))
 
+(def-package! pyvenv)
+
 (setq doom-font (font-spec :family "Source Code Pro" :size 22))
 
 (map!
@@ -52,6 +55,10 @@
  :n "K" #'dash-at-point)
 
 (map!
+ :after python-mode
+ :map (python-mode-map)
+ :n "K" #'dash-at-point)
+(map!
  :after helm-mode
  :leader
  :n "f l" #'helm-locate)
@@ -61,7 +68,13 @@
  :map (c-mode-map cpp-mode-map)
  :n "g h" #'ff-find-other-file)
 
+;; (map!
+;;  :i "M-c" #'+company/complete)
+
 (map!
  :after company-mode
  :map company-mode-map
  :i "M-c" #'+company/complete)
+
+;; (setq lsp-ui-doc-include-signature t)
+;; (setq lsp-ui-doc-max-height 30)

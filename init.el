@@ -12,6 +12,7 @@
       mac-option-modifier  'none)
 
 (setq doom-localleader-key ",")
+(setq flycheck-check-syntax-automatically '(mode-enabled save))
 
 
 (after! helm-mode 
