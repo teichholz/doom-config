@@ -11,7 +11,6 @@
 (setq mac-command-modifier 'meta
       mac-option-modifier  'none)
 
-(setq doom-localleader-key ",")
 (setq flycheck-check-syntax-automatically '(mode-enabled save))
 
 
@@ -201,9 +200,9 @@
        (lsp
         +cpp
         +python
-        ;; +css
+        ;; css
         +sh
-        +javascript
+        ;; +javascript
        )
        :config
        ;; For literate config users. This will tangle+compile a config.org

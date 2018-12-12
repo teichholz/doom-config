@@ -29,7 +29,12 @@
 
 (def-package! lsp-css
   :when (featurep! +css)
-  :hook ((css-mode less-mode scss-mode) . #'lsp-css-enable))
+  :init (defun my-css-mode-setup ()
+          (when (eq major-mode 'css-mode)
+            ;; Only enable in strictly css-mode, not scss-mode (css-mode-hook
+            ;; fires for scss-mode because scss-mode is derived from css-mode)
+            (lsp-css-enable)))
+  :hook ((css-mode less-mode scss-mode) . #'my-css-mode-setup))
 
 (def-package! lsp-rust
   :when (featurep! +rust)
@@ -68,12 +73,19 @@
     (lsp-define-stdio-client lsp-python "python"
                              #'projectile-project-root
                              '("pyls"))
-    (add-hook! python-mode #'lsp-python-enable)))
+    (add-hook! 'python-mode-hook #'lsp-python-enable)))
+
+
+(when (featurep! +python)
+  (advice-add 'org-src-mode :after #'lsp-python-enable))
 
 (when (featurep! +sh)
   (after! sh-script
     (lsp-define-stdio-client lsp-sh
-                            "sh"
-                            #'projectile-project-root
-                            '("bash-language-server" "start"))
+                             "sh"
+                             #'projectile-project-root
+                             '("bash-language-server" "start"))
     (add-hook 'sh-mode-hook #'lsp-sh-enable)))
+
+(setq lsp-ui-doc-max-height 20)
+(setq lsp-ui-doc-max-width 50)
