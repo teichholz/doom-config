@@ -24,3 +24,30 @@
       :n "n s" #'nodejs-repl
       :n "n b" #'nodejs-repl-send-buffer
       :n "n r" #'nodejs-repl-send-region)
+
+(map! :after helm
+      :leader
+      :n "f l" #'helm-locate)
+
+(after! js2-mode
+  (defun setup-js ()
+    "Eigene Fuktion zum erstellen einer jsconfig.json"
+    (interactive)
+    (save-excursion
+      (let ((buffer (create-file-buffer "jsconfig.json")))
+        (switch-to-buffer buffer)
+         (insert "{
+          \"compilerOptions\": {
+          \"target\": \"es2017\",
+          \"allowSyntheticDefaultImports\": true,
+          \"noEmit\": true,
+          \"checkJs\": true,
+          \"jsx\": \"react\"
+          \"lib\": [ \"dom\" \"es2017\" ]
+          }
+         }
+        ")
+        (set-visited-file-name "jsconfig.json")
+        (save-buffer)
+        (kill-buffer buffer))))
+  (map! :localleader :n "s" #'setup-js))
