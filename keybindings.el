@@ -1,5 +1,17 @@
 ;;; ~/.doom.d/keybindings.el -*- lexical-binding: t; -*-
 
+(defun make-python-src-block! ()
+  (interactive)
+  (save-excursion
+    (insert "#+BEGIN_SRC python" "\n" "\n" "#+END_SRC")))
+
+(after! org
+  (map! :map org-mode-map
+        :ni "M-p" #'make-python-src-block!))
+(after! org-src
+  (map! :map org-src-mode-map
+        :n "M-p" #'lsp-python-enable))
+
 (defvar my-keys-minor-mode-map
   (let ((myMap (make-sparse-keymap)))
     (map! :after 'python :map python-mode-map
@@ -7,6 +19,10 @@
           #'python-shell-send-buffer)
     (map! :n "g K" #'dash-at-point)
     (map! :i "M-c" #'+company/complete)
+    (map! :after 'org :map org-mode-map
+          :n "M-p" #'make-python-src-block!)
+    (map! :after 'org-src :map org-src-mode-map
+          :n "M-p" #'lsp-python-enable)
     myMap)
   "my-keys-minor-mode keymap.")
 
@@ -29,25 +45,17 @@
       :leader
       :n "f l" #'helm-locate)
 
-(after! js2-mode
-  (defun setup-js ()
-    "Eigene Fuktion zum erstellen einer jsconfig.json"
-    (interactive)
-    (save-excursion
-      (let ((buffer (create-file-buffer "jsconfig.json")))
-        (switch-to-buffer buffer)
-         (insert "{
-          \"compilerOptions\": {
-          \"target\": \"es2017\",
-          \"allowSyntheticDefaultImports\": true,
-          \"noEmit\": true,
-          \"checkJs\": true,
-          \"jsx\": \"react\"
-          \"lib\": [ \"dom\" \"es2017\" ]
-          }
-         }
-        ")
-        (set-visited-file-name "jsconfig.json")
-        (save-buffer)
-        (kill-buffer buffer))))
-  (map! :localleader :n "s" #'setup-js))
+(map! :after evil
+      :ng "M-f" 'swiper-helm)
+
+(map! :after avy
+      :prefix "M-g"
+      :n "k" 'avy-kill-region
+      :prefix ("M-g m" . "Avy move")
+      :n "r" 'avy-move-region
+      :n "l" 'avy-move-line
+      :prefix ("M-g g" . "Avy goto")
+      :n "c" 'avy-goto-char-2
+      :n "l" 'avy-goto-line
+      )
+

@@ -5,13 +5,23 @@
 (load! "./keybindings.el")
 
 (def-package! pyvenv)
-
+(setq make-backup-files t)
 (setq doom-font (font-spec :family "Source Code Pro" :size 22))
 
-(after! org
-  (add-to-list 'org-src-lang-modes '("js" . js2)))
+;; (add-to-list exec-path "/Users/timeichholz/.nvm/versions/node/v11.2.0/bin")
 
-
-
-;; (setq lsp-ui-doc-include-signature t)
-;; (setq lsp-ui-doc-max-height 30)
+(add-hook! lisp-mode #'lispy-mode)
+(after! lispyville
+  (lispyville-set-key-theme
+   '((operators normal)
+     (c-w normal)
+     (prettify insert normal)
+     (atom-movement normal visual)
+     slurp/barf-lispy
+     (wrap normal insert)
+     (text-objects normal)
+     additional
+     (additional-motions normal)
+     additional-insert
+     (additional-wrap normal insert)
+     (escape insert))))

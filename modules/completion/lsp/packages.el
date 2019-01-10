@@ -2,6 +2,7 @@
 ;;; completion/lsp/packages.el
 
 (when (package! lsp-mode)
+  (package! lsp-mode)
   (package! lsp-ui)
   (package! company-lsp)
 

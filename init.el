@@ -8,42 +8,8 @@
 (add-to-list 'default-frame-alist
              '(ns-appearance . dark))
 
-(setq mac-command-modifier 'meta
-      mac-option-modifier  'none)
+(load! "./vars.el")
 
-(setq flycheck-check-syntax-automatically '(mode-enabled save))
-
-
-(after! helm-mode 
-  (helm-autoresize-mode 1)
-  (setq helm-autoresize-min-height 35
-	    helm-autoresize-max-height 35))
-
-
-(setq helm-locate-command
-      (case system-type
-        ('gnu/linux "locate -i -r %s")
-        ('berkeley-unix "locate -i %s")
-        ('windows-nt "es %s")
-        ('darwin "mdfind -name %s %s")
-        (t "locate %s")))
-
-(add-hook! lisp-mode #'lispy-mode)
-(setq tab-always-indent 'complete)
-(after! lispyville
-  (lispyville-set-key-theme
-   '((operators normal)
-     (c-w normal)
-     (prettify insert normal)
-     (atom-movement normal visual)
-     slurp/barf-lispy
-     (wrap normal insert)
-     (text-objects normal)
-     additional
-     (additional-motions normal)
-     additional-insert
-     (additional-wrap normal insert)
-     (escape insert))))
 
 
 (doom! :feature
@@ -53,8 +19,8 @@
        file-templates        ; auto-snippets for empty files
        (lookup               ; helps you navigate your code and documentation
         +docsets)            ; ...or in Dash docsets locally
-       snippets              ; my elves. They type so I don't have to
-       spellcheck            ; tasing you for misspelling mispelling
+       ;; snippets              ; my elves. They type so I don't have to
+       ;; spellcheck            ; tasing you for misspelling mispelling
        (syntax-checker       ; tasing you for every semicolon you forget
         +childframe)         ; use childframes for error popups (Emacs 26+ only)
        workspaces            ; tab emulation, persistence & separate workspaces
@@ -99,7 +65,9 @@
        lispy
 
        :emacs
-       dired                      ; making dired pretty [functional]
+       (dired
+        +ranger
+        +icons)                      ; making dired pretty [functional]
        ediff                      ; comparing files in Emacs
        electric                   ; smarter, keyword-based electric-indent
        eshell                     ; a consistent, cross-platform shell (WIP)
@@ -199,10 +167,6 @@
        :completion
        (lsp
         +cpp
-        +python
-        ;; css
-        +sh
-        ;; +javascript
        )
        :config
        ;; For literate config users. This will tangle+compile a config.org
