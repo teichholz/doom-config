@@ -21,3 +21,5 @@
         ('windows-nt "es %s")
         ('darwin "mdfind -name %s %s")
         (t "locate %s")))
+
+(setq company-idle-delay nil)

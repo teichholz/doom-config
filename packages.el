@@ -5,3 +5,5 @@
 (package! winum)
 (package! exec-path-from-shell :disable t)
 (package! pyvenv)
+(package! company-box)
+(package! auto-yasnippet)

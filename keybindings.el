@@ -1,9 +1,6 @@
 ;;; ~/.doom.d/keybindings.el -*- lexical-binding: t; -*-
 
-(defun make-python-src-block! ()
-  (interactive)
-  (save-excursion
-    (insert "#+BEGIN_SRC python" "\n" "\n" "#+END_SRC")))
+(load! "./functions.el")
 
 (after! org
   (map! :map org-mode-map
@@ -39,7 +36,9 @@
       :localleader
       :n "n s" #'nodejs-repl
       :n "n b" #'nodejs-repl-send-buffer
-      :n "n r" #'nodejs-repl-send-region)
+      :n "n r" #'nodejs-repl-send-region
+      :n "s" #'setup-js
+      :i "<tab>" #'company-complete)
 
 (map! :after helm
       :leader

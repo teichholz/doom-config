@@ -9,6 +9,7 @@
   :init
   (setq lsp-ui-doc-include-signature t)
   (setq lsp-signature-enabled t)
+  (setq lsp-auto-guess-root t)
   (setq lsp-ui-doc-max-height 40)
   (setq lsp-ui-doc-max-width 50)
   :config

@@ -5,10 +5,8 @@
   (package! lsp-mode)
   (package! lsp-ui)
   (package! company-lsp)
+  (package! tide :disable t)
 
-  (when (featurep! +javascript)
-    (package! lsp-javascript-typescript)
-    (package! tide :disable t))
 
   (when (featurep! +go)
     (package! lsp-go))
