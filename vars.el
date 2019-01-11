@@ -23,3 +23,4 @@
         (t "locate %s")))
 
 (setq company-idle-delay nil)
+(setq doom-localleader-key ",")
