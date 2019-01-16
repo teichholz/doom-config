@@ -41,13 +41,8 @@
       :n "n r" #'nodejs-repl-send-region
       :n "s" #'setup-js)
 
+(map! :i "H-d" 'dabbrev-expand)
 
-(map! :after helm
-      :leader
-      :n "f l" #'helm-locate)
-
-(map! :after evil
-      :ng "M-f" 'swiper-helm)
 
 (map! :after avy
       :prefix "M-g"
@@ -57,22 +52,7 @@
       :n "l" 'avy-move-line
       :prefix ("M-g g" . "Avy goto")
       :n "c" 'avy-goto-char-2
-      :n "l" 'avy-goto-line
-      )
+      :n "l" 'avy-goto-line)
 
 
-(map! :after js2-mode
-      :map js2-mode-map
-      :i "<tab>" #'indent-or-complete)
-(map! :after emacs-lisp-mode
-      :map emacs-lisp-mode-map
-      :i "<tab>" #'indent-or-complete)
-(map! :after python-mode
-      :map python-mode-map
-      :i "<tab>" #'indent-or-complete)
-(map! :after c++-mode
-      :map c++-mode-map
-      :i "<tab>" #'indent-or-complete)
-(map! :after c-mode
-      :map c-mode-map
-      :i "<tab>" #'indent-or-complete)
+;; (map! :gi "<tab>" #'indent-or-complete)

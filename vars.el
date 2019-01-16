@@ -2,7 +2,8 @@
 
 
 (setq mac-command-modifier 'meta
-      mac-option-modifier  'none)
+      mac-option-modifier  'super
+      mac-right-option-modifier 'hyper)
 
 (setq flycheck-check-syntax-automatically '(mode-enabled save))
 
@@ -22,5 +23,7 @@
         ('darwin "mdfind -name %s %s")
         (t "locate %s")))
 
-(setq company-idle-delay nil)
+(add-hook! lsp-mode
+  (setq company-idle-delay nil))
+
 (setq doom-localleader-key ",")

@@ -18,7 +18,7 @@
        file-templates        ; auto-snippets for empty files
        (lookup               ; helps you navigate your code and documentation
         +docsets)            ; ...or in Dash docsets locally
-       ;; snippets              ; my elves. They type so I don't have to
+        snippets              ; my elves. They type so I don't have to
        ;; spellcheck            ; tasing you for misspelling mispelling
        (syntax-checker       ; tasing you for every semicolon you forget
         +childframe)         ; use childframes for error popups (Emacs 26+ only)
@@ -26,23 +26,22 @@
 
        :completion
        (company         ; the ultimate code completion backend
-        +auto)          ; as-you-type code completion
-       (helm            ; the *other* search engine for love and life
-        +fuzzy)         ; enable fuzzy search backend for helm
+        +childframe)          ; as-you-type code completion
+       ;; (helm            ; the *other* search engine for love and life
+       ;;  +fuzzy)         ; enable fuzzy search backend for helm
        ;;ido               ; the other *other* search engine...
-       ;;(ivy              ; a search engine for love and life
-       ;;+fuzzy)          ; enable fuzzy search backend for ivy
+       (ivy                             ; a search engine for love and life
+        +fuzzy)          ; enable fuzzy search backend for ivy
 
        :ui
        ;;deft              ; notational velocity for Emacs
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
-       ;; doom-modeline     ; a snazzy Atom-inspired mode-line
-       evil-goggles
-                                        ; display visual hints when editing in evil
+       doom-modeline     ; a snazzy Atom-inspired mode-line
+       evil-goggles      ; display visual hints when editing in evil
        ;;fci               ; a `fill-column' indicator
        hl-todo     ; highlight TODO/FIXME/NOTE tags
-       modeline    ; snazzy, Atom-inspired modeline, plus API
+       ;; modeline    ; snazzy, Atom-inspired modeline, plus API
        nav-flash   ; blink the current line after jumping
        ;;neotree           ; a project drawer, like NERDTree for vim
        treemacs    ; a project drawer, like neotree but cooler

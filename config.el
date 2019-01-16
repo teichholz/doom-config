@@ -7,16 +7,22 @@
 (load! "./vars.el")
 
 (def-package! pyvenv)
-(def-package! company-box
-  :hook (company-mode . company-box-mode))
+;; (def-package! company-box
+;;   :hook (company-mode . company-box-mode))
 (def-package! auto-yasnippet)
 (setq make-backup-files t)
-(setq company-idle-delay nil)
 (setq doom-font (font-spec :family "Source Code Pro" :size 22))
 
-;; (add-to-list exec-path "/Users/timeichholz/.nvm/versions/node/v11.2.0/bin")
+
+(add-hook! eshell-mode
+  (company-mode 1))
 
 
-;; (when (eq major-mode 'js2-mode)
-;;   (make-local-variable 'completion-at-point-functions)
-;;   (setq 'completion-at-point-functions '(company-complete)))
+
+;;(setq counsel-locate-cmd (cond ((eq system-type 'darwin)
+;;                                     '(lambda (string) (format "mdfind -name '%s'" string)))
+ ;;                                   ((and (eq system-type 'windows-nt)
+   ;;                                       (executable-find "es.exe"))
+     ;;                                'counsel-locate-cmd-es)
+       ;;                             (t
+         ;;                            'counsel-locate-cmd-default))
