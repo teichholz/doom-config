@@ -5,9 +5,6 @@
 (after! org
   (map! :map org-mode-map
         :ni "M-p" #'make-python-src-block!))
-(after! org-src
-  (map! :map org-src-mode-map
-        :n "M-p" #'lsp-python-enable))
 
 (defvar my-keys-minor-mode-map
   (let ((myMap (make-sparse-keymap)))
@@ -31,18 +28,9 @@
 
 (my-keys-minor-mode 1)
 
-
-(map! :i "M-c" #'+company/complete)
-(map! :after js2-mode
-      :map js2-mode-map
-      :localleader
-      :n "n s" #'nodejs-repl
-      :n "n b" #'nodejs-repl-send-buffer
-      :n "n r" #'nodejs-repl-send-region
-      :n "s" #'setup-js)
+(map! :n "L" #'avy-goto-line)
 
 (map! :i "H-d" 'dabbrev-expand)
-
 
 (map! :after avy
       :prefix "M-g"
@@ -55,4 +43,13 @@
       :n "l" 'avy-goto-line)
 
 
-;; (map! :gi "<tab>" #'indent-or-complete)
+(map!
+ :n "H-1" '+workspace/switch-to-0
+ :n "H-2" '+workspace/switch-to-1
+ :n "H-3" '+workspace/switch-to-2
+ :n "H-4" '+workspace/switch-to-3
+ :n "H-5" '+workspace/switch-to-4
+ :n "H-6" '+workspace/switch-to-5
+ :n "H-7" '+workspace/switch-to-6)
+
+

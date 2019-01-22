@@ -7,3 +7,5 @@
 (package! pyvenv)
 ;; (package! company-box)
 (package! auto-yasnippet)
+(package! evil-avy)
+(package! evil-ex-fasd)
