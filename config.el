@@ -10,6 +10,7 @@
 (def-package! pyvenv)
 (def-package! evil-avy)
 (def-package! evil-ex-fasd)
+(def-package! drag-stuff)
 ;; (def-package! company-box
 ;;   :hook (company-mode . company-box-mode))
 (def-package! auto-yasnippet)

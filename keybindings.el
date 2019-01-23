@@ -29,8 +29,11 @@
 (my-keys-minor-mode 1)
 
 (map! :n "L" #'avy-goto-line)
-
 (map! :i "H-d" 'dabbrev-expand)
+
+(map! :after drag-stuff
+      :n "M-H-j" #'drag-stuff-down
+      :n "M-H-k" #'drag-stuff-up)
 
 (map! :after avy
       :prefix "M-g"
@@ -52,5 +55,3 @@
  :n "H-5" '+workspace/switch-to-4
  :n "H-6" '+workspace/switch-to-5
  :n "H-7" '+workspace/switch-to-6)
-
-

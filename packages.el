@@ -9,3 +9,4 @@
 (package! auto-yasnippet)
 (package! evil-avy)
 (package! evil-ex-fasd)
+(package! drag-stuff)
