@@ -42,6 +42,7 @@
       :n "c" 'avy-goto-char-2
       :n "l" 'avy-goto-line)
 
+(map! :n "U" #'undo-tree-redo)
 
 (map!
  :n "H-1" '+workspace/switch-to-0
