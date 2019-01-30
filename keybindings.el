@@ -47,6 +47,9 @@
 
 (map! :n "U" #'undo-tree-redo)
 
+(map! :g "s-," #'previous-buffer
+      :g "s-." #'next-buffer)
+
 (map!
  :n "H-1" '+workspace/switch-to-0
  :n "H-2" '+workspace/switch-to-1
