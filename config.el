@@ -22,13 +22,3 @@
       (expand-file-name "~/.local/bin/Microsoft.Python.LanguageServer"))
 (add-hook! eshell-mode
   (company-mode 1))
-
-
-
-;;(setq counsel-locate-cmd (cond ((eq system-type 'darwin)
-;;                                     '(lambda (string) (format "mdfind -name '%s'" string)))
- ;;                                   ((and (eq system-type 'windows-nt)
-   ;;                                       (executable-find "es.exe"))
-     ;;                                'counsel-locate-cmd-es)
-       ;;                             (t
-         ;;                            'counsel-locate-cmd-default))
