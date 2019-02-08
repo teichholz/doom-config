@@ -1,33 +1,10 @@
 ;;; ~/.doom.d/keybindings.el -*- lexical-binding: t; -*-
 
-(load! "./functions.el")
-
 (after! org
   (map! :map org-mode-map
         :ni "M-p" #'make-python-src-block!))
 
-(defvar my-keys-minor-mode-map
-  (let ((myMap (make-sparse-keymap)))
-    (map! :after 'python :map myMap
-          :n "C-c C-c"
-          #'python-shell-send-buffer)
-    (map! :n "g K" #'dash-at-point)
-    (map! :after 'org :map org-mode-map
-          :n "M-p" #'make-python-src-block!)
-    (map! :after 'org-src :map org-src-mode-map
-          :n "M-p" #'lsp-python-enable)
-    (map! :map myMap
-          :i "<tab>" #'indent-or-complete)
-    myMap)
-  "my-keys-minor-mode keymap.")
-
-(define-minor-mode my-keys-minor-mode
-  "A minor mode so that my key settings override annoying major modes."
-  :init-value t
-  :lighter "my-keys")
-
-(my-keys-minor-mode 1)
-
+(map! :n "g K" #'dash-at-point)
 (map! :n "L" #'avy-goto-line)
 (map! :i "H-d" 'dabbrev-expand)
 
@@ -49,6 +26,11 @@
 
 (map! :g "s-," #'previous-buffer
       :g "s-." #'next-buffer)
+
+(map! :map dired-mode-map
+      :n "F" 'counsel-dired-jump)
+
+(map! :n "s-w" 'jp-window/body)
 
 (map!
  :n "H-1" '+workspace/switch-to-0

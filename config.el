@@ -3,17 +3,17 @@
 (load! "./dash-at-point.el")
 (load! "./winum.el")
 (load! "./lispyville.el")
-(load! "./keybindings.el")
-(load! "./vars.el")
 (load! "./packages/python-lsp-ms.el")
+(load! "./functions.el")
+(load! "./vars.el")
+(load! "./keybindings.el")
 
 (def-package! pyvenv)
 (def-package! evil-avy)
 (def-package! evil-ex-fasd)
 (def-package! drag-stuff)
-;; (def-package! company-box
-;;   :hook (company-mode . company-box-mode))
 (def-package! auto-yasnippet)
+(def-package! major-mode-hydra)
 (setq make-backup-files t)
 (setq doom-font (font-spec :family "Source Code Pro" :size 22))
 (setq lsp-python-ms-dir
