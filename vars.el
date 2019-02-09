@@ -27,3 +27,5 @@
   (setq company-idle-delay nil))
 
 (setq doom-localleader-key ",")
+
+(setq doom-font (font-spec :family "Source Code Pro" :size 22))
