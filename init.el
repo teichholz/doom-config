@@ -37,7 +37,7 @@
        ;;deft              ; notational velocity for Emacs
        doom              ; what makes DOOM look the way it does
        doom-dashboard    ; a nifty splash screen for Emacs
-       doom-modeline     ; a snazzy Atom-inspired mode-line
+       ;; doom-modeline     ; a snazzy Atom-inspired mode-line
        evil-goggles      ; display visual hints when editing in evil
        ;;fci               ; a `fill-column' indicator
        hl-todo     ; highlight TODO/FIXME/NOTE tags

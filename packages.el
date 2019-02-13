@@ -10,3 +10,4 @@
 (package! evil-ex-fasd)
 (package! drag-stuff)
 (package! major-mode-hydra)
+(package! doom-modeline)
