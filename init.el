@@ -8,9 +8,6 @@
 (add-to-list 'default-frame-alist
              '(ns-appearance . dark))
 
-(load! "./vars.el")
-
-
 (doom! :feature
        debugger              ; FIXME stepping through code, to help you add bugs
        eval                  ; run code, run (also, repls)
