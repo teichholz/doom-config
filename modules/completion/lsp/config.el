@@ -1,7 +1,9 @@
 ;;; completion/lsp/config.el -*- lexical-binding: t; -*-
 
 (def-package! lsp-mode
-  :commands (lsp))
+  :commands (lsp)
+  :init
+  (setq lsp-prefer-flymake nil))
 
 (def-package! lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
@@ -36,5 +38,4 @@
         cquery-sem-highlight-method 'overlay) ;; set to 'font-lock if highlighting slowly
   )
 
-(add-hook! (js2-mode web-mode css-mode sh-mode) 'lsp)
-
+(add-hook! (js2-mode web-mode css-mode sh-mode cpp-mode c-mode python-mode) 'lsp)
