@@ -6,6 +6,7 @@
 (load! "./packages/python-lsp-ms.el")
 (load! "./functions.el")
 (load! "./vars.el")
+(load! "./hydras.el")
 (load! "./keybindings.el")
 
 (def-package! doom-modeline
