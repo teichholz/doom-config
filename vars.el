@@ -14,6 +14,7 @@
 	    helm-autoresize-max-height 35))
 
 (setq tab-always-indent 'complete)
+(setq which-key-idle-delay 0.5)
 
 (setq helm-locate-command
       (case system-type

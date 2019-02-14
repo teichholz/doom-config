@@ -30,6 +30,9 @@
 (map! :map dired-mode-map
       :n "F" 'counsel-dired-jump)
 
+(map! :map which-key-mode-map
+      :n "C-c n")
+
 (map! :n "s-w" 'jp-window/body)
 
 (map!
