@@ -3,14 +3,14 @@
 (def-package! lsp-mode
   :commands (lsp)
   :init
-  (setq lsp-prefer-flymake nil))
+  (setq lsp-prefer-flymake nil)
+  (setq lsp-eldoc-enable-hover nil))
 
 (def-package! lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
   :commands (lsp-mode)
   :init
   (setq lsp-ui-doc-include-signature t)
-  (setq lsp-signature-enabled t)
   (setq lsp-auto-guess-root t)
   (setq lsp-ui-doc-max-height 80)
   (setq lsp-ui-doc-max-width 50)
@@ -18,7 +18,8 @@
   (set-lookup-handlers! 'lsp-ui-mode
     :definition #'lsp-ui-peek-find-definitions
     :references #'lsp-ui-peek-find-references)
-  (setq lsp-ui-sideline-ignore-duplicate t))
+  (setq lsp-ui-sideline-ignore-duplicate t)
+  (lsp-ui-sideline-mode -1))
 
 (def-package! company-lsp
   :after lsp-mode
