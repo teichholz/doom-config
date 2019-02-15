@@ -23,3 +23,5 @@
       (expand-file-name "~/.local/bin/Microsoft.Python.LanguageServer"))
 (add-hook! eshell-mode
   (company-mode 1))
+(define-key which-key-mode-map (kbd "<f1> C-h") 'which-key-C-h-dispatch)
+(evil-avy-mode 1)

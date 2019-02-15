@@ -2,8 +2,11 @@
 
 
 (setq mac-command-modifier 'meta
-      mac-option-modifier  'super
       mac-right-option-modifier 'hyper)
+
+(if (equal (expand-file-name gnus-home-directory) "/Users/tim/")
+    (setq mac-option-modifier  nil)
+  (setq mac-option-modifier 'super))
 
 (setq flycheck-check-syntax-automatically '(mode-enabled save))
 
@@ -14,7 +17,7 @@
 	    helm-autoresize-max-height 35))
 
 (setq tab-always-indent 'complete)
-(setq which-key-idle-delay 0.5)
+(setq which-key-idle-delay 1.0)
 
 (setq helm-locate-command
       (case system-type
