@@ -4,7 +4,8 @@
   :commands (lsp)
   :init
   (setq lsp-prefer-flymake nil)
-  (setq lsp-eldoc-enable-hover nil))
+  (setq lsp-eldoc-enable-hover nil)
+  (setq lsp-eldoc-hook '(lsp-hover)))
 
 (def-package! lsp-ui
   :hook (lsp-mode . lsp-ui-mode)
@@ -19,7 +20,7 @@
     :definition #'lsp-ui-peek-find-definitions
     :references #'lsp-ui-peek-find-references)
   (setq lsp-ui-sideline-ignore-duplicate t)
-  (lsp-ui-sideline-mode -1))
+  (setq lsp-ui-sideline-enable nil))
 
 (def-package! company-lsp
   :after lsp-mode
