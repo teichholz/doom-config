@@ -30,11 +30,15 @@
 (map! :map dired-mode-map
       :n "F" 'counsel-dired-jump)
 
-;; (map! :map which-key-mode-map
-;;       :n "C-c n")
-
 (map! :n "s-w" 'jp-window/body)
 
+(after! 'which-key
+  (define-key which-key-mode-map (kbd "<f1> C-h") 'which-key-C-h-dispatch))
+
+(general-def :states 'insert
+  "j" (general-key-dispatch 'self-insert-command
+        :timeout 0.25
+        "k" 'evil-normal-state))
 (map!
  :n "H-1" '+workspace/switch-to-0
  :n "H-2" '+workspace/switch-to-1
