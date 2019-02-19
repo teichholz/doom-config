@@ -32,7 +32,7 @@
 
 (map! :n "s-w" 'jp-window/body)
 
-(after! 'which-key
+(after! which-key
   (define-key which-key-mode-map (kbd "<f1> C-h") 'which-key-C-h-dispatch))
 
 (general-def :states 'insert

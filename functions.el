@@ -46,3 +46,26 @@
 (defun +workspace/switch-to-6 ()
   (interactive)
     (+workspace/switch-to 6))
+
+(defun insert-shell-option (cmd)
+  (interactive "sCommand: ")
+  (require 'pcmpl-args)
+  (require 'helm)
+  (let ((options ()))
+    (dolist (item (pcmpl-args-extract-argspecs-from-manpage cmd))
+      (let ((option (plist-get item 'option))
+            (help (plist-get item :help)))
+        (push (cons (with-temp-buffer
+                      (insert help)
+                      (let ((fill-column 80))
+                        (fill-paragraph))
+                      (goto-char (point-min))
+                      (insert (format "%s\n" option))
+                      (buffer-string))
+                  (format "%s" (plist-get item 'option)))
+            options)))
+    (helm (helm-build-sync-source "Options: "
+            :candidates (nreverse options)
+            :multiline t
+            :action #'insert))))
+

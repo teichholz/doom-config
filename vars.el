@@ -4,7 +4,7 @@
 (setq mac-command-modifier 'meta
       mac-right-option-modifier 'hyper)
 
-(if (equal (expand-file-name "~") "/Users/tim/")
+(if (equal (expand-file-name "~") "/Users/tim")
     (setq mac-option-modifier  nil)
   (setq mac-option-modifier 'super))
 
