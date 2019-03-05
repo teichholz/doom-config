@@ -26,3 +26,4 @@
   (company-mode 1))
 (evil-avy-mode 1)
 (def-package! pcmpl-args)
+(def-package! fzf)

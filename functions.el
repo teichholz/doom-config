@@ -69,3 +69,4 @@
             :multiline t
             :action #'insert))))
 
+;; (pcmpl-args-extract-argspecs-from-manpage "man")

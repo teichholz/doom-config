@@ -32,13 +32,16 @@
 
 (map! :n "s-w" 'jp-window/body)
 
+(map! :i "M-v" 'evil-paste-before)
+
 (after! which-key
   (define-key which-key-mode-map (kbd "<f1> C-h") 'which-key-C-h-dispatch))
 
-(general-def :states 'insert
-  "j" (general-key-dispatch 'self-insert-command
-        :timeout 0.25
-        "k" 'evil-normal-state))
+;; (general-def :states 'insert
+;;   "j" (general-key-dispatch 'self-insert-command
+;;         :timeout 0.25
+;;         "k" 'evil-normal-state))
+
 (map!
  :n "H-1" '+workspace/switch-to-0
  :n "H-2" '+workspace/switch-to-1

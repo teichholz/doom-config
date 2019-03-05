@@ -12,3 +12,4 @@
 (package! major-mode-hydra)
 (package! doom-modeline)
 (package! pcmpl-args)
+(package! fzf)
