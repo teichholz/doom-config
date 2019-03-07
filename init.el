@@ -20,9 +20,9 @@
 
        :completion
        company           ; the ultimate code completion backend
-       helm              ; the *other* search engine for love and life
-       ;;ido              ; the other *other* search engine...
-       ;;ivy              ; a search engine for love and life
+       ;; helm              ; the *other* search engine for love and life
+       ;; Ido              ; the other *other* search engine...
+       ivy              ; a search engine for love and life
 
        :ui
        ;;deft              ; notational velocity for Emacs
@@ -33,7 +33,7 @@
        evil-goggles              ; display visual hints when editing in evil
        ;;fci               ; a `fill-column' indicator
        hl-todo    ; highlight TODO/FIXME/NOTE tags
-       ;; modeline          ; snazzy, Atom-inspired modeline, plus API
+       modeline          ; snazzy, Atom-inspired modeline, plus API
         ;; nav-flash
                                         ; blink the current line after jumping
        ;;neotree           ; a project drawer, like NERDTree for vim

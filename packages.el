@@ -10,6 +10,6 @@
 (package! evil-ex-fasd)
 (package! drag-stuff)
 (package! major-mode-hydra)
-(package! doom-modeline)
+;; (package! doom-modeline)
 (package! pcmpl-args)
 (package! fzf)

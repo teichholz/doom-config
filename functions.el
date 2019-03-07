@@ -42,7 +42,7 @@
     (+workspace/switch-to 4))
 (defun +workspace/switch-to-5 ()
   (interactive)
-    (+workspace/switch-to 5))
+  (+workspace/switch-to 5))
 (defun +workspace/switch-to-6 ()
   (interactive)
     (+workspace/switch-to 6))
@@ -66,7 +66,5 @@
             options)))
     (helm (helm-build-sync-source "Options: "
             :candidates (nreverse options)
-            :multiline t
+            ;; :multiline t
             :action #'insert))))
-
-;; (pcmpl-args-extract-argspecs-from-manpage "man")

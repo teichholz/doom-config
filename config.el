@@ -9,8 +9,8 @@
 (load! "./hydras.el")
 (load! "./keybindings.el")
 
-(def-package! doom-modeline
-      :hook (after-init . doom-modeline-mode))
+;; (def-package! doom-modeline
+;;       :hook (after-init . doom-modeline-mode))
 (def-package! pyvenv)
 (def-package! evil-avy)
 (def-package! evil-ex-fasd)
