@@ -7,32 +7,53 @@
 (map! :n "g K" #'dash-at-point)
 (map! :n "L" #'avy-goto-line)
 (map! :i "H-d" 'dabbrev-expand)
+(map! :i "H-x" 'evil-delete-backward-char
+      :i "H-w" 'backward-kill-word)
 
+ 
 (map! :after drag-stuff
-      :n "M-H-j" #'drag-stuff-down
-      :n "M-H-k" #'drag-stuff-up)
+      :n "C-M-j" #'drag-stuff-down
+      :n "C-M-k" #'drag-stuff-up)
 
 (map! :after avy
       :prefix "M-g"
       :n "k" 'avy-kill-region
-      :prefix ("M-g m" . "Avy move")
       :n "r" 'avy-move-region
-      :n "l" 'avy-move-line
-      :prefix ("M-g g" . "Avy goto")
-      :n "c" 'avy-goto-char-2
-      :n "l" 'avy-goto-line)
+      :n "l" 'avy-move-lin
+)
+(map! :after helm
+      :map (helm-find-files-map helm-buffer-map helm-M-x-map)
+      "H-m" 'helm-toggle-visible-mark)
 
 (map! :n "U" #'undo-tree-redo)
 
-(map! :g "s-," #'previous-buffer
-      :g "s-." #'next-buffer)
+(map! :g "H-," #'previous-buffer
+      :g "H-." #'next-buffer
+      :g "H-[" #'previous-buffer
+      :g "H-]" #'next-buffer)
 
 (map! :map dired-mode-map
       :n "F" 'counsel-dired-jump)
 
-(map! :n "s-w" 'jp-window/body)
+(map! :g "M-?" #'avy-goto-char-2)
+
+(map!
+ :prefix "H-h"
+ :n "H-w" 'jp-window/body
+ :n "H-c" 'hydra-flycheck/body
+ :n "H-f" 'hydra-flycheck/body
+ :map prog-mode-map
+ :n "H-l" 'hydra-lsp/body
+ :map projectile-mode-map
+ :n "H-p" 'hydra-projectile/body)
+(map! :n
+      "H-w" 'jp-window/body)
+(map! :map dired-mode-map
+      :n "." 'hydra-dired/body)
 
 (map! :i "M-v" 'evil-paste-before)
+(map! :map +popup-mode-map
+      :ni "M-r" '+popup/raise)
 
 (after! which-key
   (define-key which-key-mode-map (kbd "<f1> C-h") 'which-key-C-h-dispatch))
@@ -50,3 +71,13 @@
  :n "H-5" '+workspace/switch-to-4
  :n "H-6" '+workspace/switch-to-5
  :n "H-7" '+workspace/switch-to-6)
+
+(map!
+ :n "H-j" 'evil-scroll-line-down
+ :n "H-k" 'evil-scroll-line-up)
+
+(map!
+ :map prog-mode-map
+ :prefix "q"
+ :n "q" 'evil-record-macro
+ :n "f" 'avy-goto-char-2 "f")

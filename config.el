@@ -1,11 +1,11 @@
 ;; gets loaded after any modules
 
+(load! "./vars.el")
 (load! "./dash-at-point.el")
 (load! "./winum.el")
 (load! "./lispyville.el")
 (load! "./packages/python-lsp-ms.el")
 (load! "./functions.el")
-(load! "./vars.el")
 (load! "./hydras.el")
 (load! "./keybindings.el")
 
@@ -27,3 +27,7 @@
 (evil-avy-mode 1)
 (def-package! pcmpl-args)
 (def-package! fzf)
+
+(after! helm-mode
+  (remove-hook 'helm-after-initialize-hook '+helm|hide-mode-line)
+  (advice-remove 'helm-display-mode-line '+helm|hide-mode-line))
