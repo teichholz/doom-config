@@ -12,10 +12,10 @@
        ;;debugger          ; FIXME stepping through code, to help you add bugs
        eval                   ; run code, run (also, repls)
        (evil +everywhere)     ; come to the dark side, we have cookies
-       file-templates         ; auto-snippets for empty files
+       ;; file-templates         ; auto-snippets for empty files
        (lookup                ; helps you navigate your code and documentation
         +docsets)             ; ...or in Dash docsets locally
-       snippets               ; my elves. They type so I don't have to
+       ;; snippets               ; my elves. They type so I don't have to
        workspaces             ; tab emulation, persistence & separate workspaces
 
        :completion
@@ -50,6 +50,7 @@
        vc-gutter                        ; vcs diff in the fringe
        vi-tilde-fringe                  ; fringe tildes to mark beyond EOB
        window-select                    ; visually switch windows
+       indent-guides
 
        :editor
        fold     ; (nigh) universal code folding
@@ -78,7 +79,7 @@
        flycheck      ; tasing you for every semicolon you forget
        ;;flyspell          ; tasing you for misspelling mispelling
        ;;gist              ; interacting with github gists
-       ;; lsp
+       lsp
        macos             ; MacOS-specific commands
        magit             ; a git porcelain for Emacs
        make              ; run make tasks from Emacs
@@ -133,7 +134,8 @@
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
-       python            ; beautiful is better than ugly
+       (python
+        +lsp)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        racket            ; a DSL for DSLs
        ;;rest              ; Emacs as a REST client
@@ -164,8 +166,7 @@
        ;;floobits          ; peer programming for a price
        ;;impatient-mode    ; show off code over HTTP
        :completion
-       (lsp
-        +cpp)
+       ;; (lsp)
 
        :config
        ;; For literate config users. This will tangle+compile a config.org

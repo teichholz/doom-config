@@ -68,3 +68,8 @@
             :candidates (nreverse options)
             ;; :multiline t
             :action #'insert))))
+
+(defun own/updatedb ()
+  (interactive)
+  (async-shell-command "sudo /usr/libexec/locate.updatedb -I 0 -U /Users/timeichholz")
+  (message "Locatedb aktualisiert"))

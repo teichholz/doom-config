@@ -13,3 +13,7 @@
 ;; (package! doom-modeline)
 (package! pcmpl-args)
 (package! fzf)
+(package! helm-mode-manager)
+(package! helm-make)
+(package! helm-ls-git)
+(package! helm-swoop)

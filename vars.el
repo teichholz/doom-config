@@ -5,8 +5,7 @@
     (setq mac-option-modifier  nil)
   (setq mac-option-modifier 'super))
 
-(setq flycheck-check-syntax-automatically '(mode-enabled save))
-
+(setq flycheck-check-syntax-automatically '(save))
 (after! helm
   (helm-autoresize-mode 1)
   (setq helm-autoresize-min-height 45
@@ -31,14 +30,6 @@ f1/f2/f-n:NthAct \
 
 (setq tab-always-indent 'complete)
 (setq which-key-idle-delay 1.0)
-
-;; (setq helm-locate-command
-;;       (case system-type
-;;         ('gnu/linux "locate -i -r %s")
-;;         ('berkeley-unix "locate -i %s")
-;;         ('windows-nt "es %s")
-        ;; ('darwin "find -name %s")
-;;         (t "locate %s")))
 
 (setq company-show-numbers t)
 (setq evil-escape-key-sequence "fd")
@@ -69,3 +60,17 @@ f1/f2/f-n:NthAct \
                (lambda (cand) (get-buffer cand))))
   (ivy-rich-mode 0)
   (ivy-rich-mode 1))
+
+(defvar macosx-p (string-match "darwin" (symbol-name system-type)))
+
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell
+         (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+(when macosx-p
+  (set-exec-path-from-shell-PATH))
+
+(setq lsp-ui-sideline-ignore-duplicate t)
+(setq lsp-ui-sideline-enable nil)
