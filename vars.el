@@ -3,14 +3,13 @@
       mac-right-option-modifier 'hyper)
 (if (equal (expand-file-name "~") "/Users/tim")
     (setq mac-option-modifier  nil)
-  (setq mac-option-modifier 'super))
+  ;; (setq mac-option-modifier 'super)
+  (setq mac-option-modifier nil))
 
-(setq flycheck-check-syntax-automatically '(save))
-(after! helm
-  (helm-autoresize-mode 1)
-  (setq helm-autoresize-min-height 45
-        helm-autoresize-max-height 45))
+(setq flycheck-check-syntax-automatically nil)
 
+(setq helm-autoresize-min-height 45
+        helm-autoresize-max-height 45)
 (setq helm-display-header-line t
       helm-mode-line-string "\
 \\<helm-map>\
@@ -29,7 +28,7 @@ f1/f2/f-n:NthAct \
 
 
 (setq tab-always-indent 'complete)
-(setq which-key-idle-delay 1.0)
+;; (setq which-key-idle-delay 1.0)
 
 (setq company-show-numbers t)
 (setq evil-escape-key-sequence "fd")
@@ -40,7 +39,6 @@ f1/f2/f-n:NthAct \
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
 
 (setq doom-theme 'doom-solarized-light)
-
 
 (after! ivy-rich
   (plist-put ivy-rich--display-transformers-list 'ivy-switch-buffer
@@ -62,15 +60,22 @@ f1/f2/f-n:NthAct \
   (ivy-rich-mode 1))
 
 (defvar macosx-p (string-match "darwin" (symbol-name system-type)))
-
-(defun set-exec-path-from-shell-PATH ()
-  (let ((path-from-shell
-         (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
-    (setenv "PATH" path-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
-
 (when macosx-p
   (set-exec-path-from-shell-PATH))
 
 (setq lsp-ui-sideline-ignore-duplicate t)
 (setq lsp-ui-sideline-enable nil)
+(setq lsp-eldoc-enable-hover nil)
+
+(setq nswbuff-exclude-buffer-regexps '("^ .*" "^\\*.*\\*"))
+(setq nswbuff-clear-delay 1)
+(setq nswbuff-buffer-list-function #'+workspace-buffer-list)
+
+(setq evil-echo-state nil)
+
+(setq make-backup-files t)
+
+(setq lsp-python-ms-dir
+      (expand-file-name "~/GitHub/python-language-server/output/bin/Release/"))
+(setq lsp-python-ms-executable
+      (expand-file-name "~/.local/bin/Microsoft.Python.LanguageServer"))

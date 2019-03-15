@@ -5,7 +5,6 @@
         :ni "M-p" #'make-python-src-block!))
 
 (map! :n "g K" #'dash-at-point)
-(map! :n "L" #'avy-goto-line)
 (map! :i "H-d" 'dabbrev-expand)
 (map! :i "H-x" 'evil-delete-backward-char
       :i "H-w" 'backward-kill-word)
@@ -72,6 +71,7 @@
  :n "H-6" '+workspace/switch-to-5
  :n "H-7" '+workspace/switch-to-6)
 
+;; Leichtes Scrollen auf US Layout
 (map!
  :n "H-j" 'evil-scroll-line-down
  :n "H-k" 'evil-scroll-line-up)
@@ -81,3 +81,11 @@
  :prefix "q"
  :n "q" 'evil-record-macro
  :n "f" 'avy-goto-char-2 "f")
+
+(map!
+ :map helm-map
+ "C-u" 'universal-argument)
+
+(map!
+ :n "<C-tab>" 'nswbuff-switch-to-next-buffer
+ :n "<H-tab>" 'nswbuff-switch-to-previous-buffer)

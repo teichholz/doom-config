@@ -20,7 +20,7 @@
 
        :completion
        (company
-        +childframe
+        ;; +childframe
         )           ; the ultimate code completion backend
        (helm
         +fuzzy)              ; the *other* search engine for love and life
@@ -76,7 +76,7 @@
        ;;docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
-       flycheck      ; tasing you for every semicolon you forget
+       f
        ;;flyspell          ; tasing you for misspelling mispelling
        ;;gist              ; interacting with github gists
        lsp
@@ -135,7 +135,8 @@
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
        (python
-        +lsp)            ; beautiful is better than ugly
+        +lsp
+        )            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        racket            ; a DSL for DSLs
        ;;rest              ; Emacs as a REST client
