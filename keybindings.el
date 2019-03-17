@@ -34,8 +34,6 @@
 (map! :map dired-mode-map
       :n "F" 'counsel-dired-jump)
 
-(map! :g "M-?" #'avy-goto-char-2)
-
 (map!
  :prefix "H-h"
  :n "H-w" 'jp-window/body
@@ -76,6 +74,7 @@
  :n "H-j" 'evil-scroll-line-down
  :n "H-k" 'evil-scroll-line-up)
 
+;; Eigenes Prefix fuer dies und das
 (map!
  :map prog-mode-map
  :prefix "q"
@@ -89,3 +88,6 @@
 (map!
  :n "<C-tab>" 'nswbuff-switch-to-next-buffer
  :n "<H-tab>" 'nswbuff-switch-to-previous-buffer)
+
+(map!
+ :n "J" 'avy-goto-char-2)

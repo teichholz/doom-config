@@ -8,37 +8,36 @@
 
 (setq flycheck-check-syntax-automatically nil)
 
-(setq helm-autoresize-min-height 45
-        helm-autoresize-max-height 45)
-(setq helm-display-header-line t
-      helm-mode-line-string "\
-\\<helm-map>\
-\\[helm-help]:Help \
-\\[helm-select-action]:Act \
-\\[helm-maybe-exit-minibuffer]/\
-f1/f2/f-n:NthAct \
-\\[helm-toggle-suspend-update]:Tog.suspend"
-      helm-ff-auto-update-initial-value t
-      helm-find-files-doc-header " (\\<helm-find-files-map>\\[helm-find-files-up-one-level]: Go up one level)"
-      helm-display-buffer-height 50
-      helm-display-buffer-default-height 1
-      helm-locate-recursive-dirs-command "mdfind -onlyin '%s' -name '%s'"
-      )
-
-
+(setq
+ helm-autoresize-min-height 45
+ helm-autoresize-max-height 45
+ helm-display-header-line t
+ helm-mode-line-string "\
+    \\<helm-map>\
+    \\[helm-help]:Help \
+    \\[helm-select-action]:Act \
+    \\[helm-maybe-exit-minibuffer]/\
+    f1/f2/f-n:NthAct \
+    \\[helm-toggle-suspend-update]:Tog.suspend"
+ helm-ff-auto-update-initial-value t
+ helm-find-files-doc-header " (\\<helm-find-files-map>\\[helm-find-files-up-one-level]: Go up one level)"
+ helm-display-buffer-height 50
+ helm-display-buffer-default-height 1
+ helm-locate-recursive-dirs-command "mdfind -onlyin '%s' -name '%s'")
 
 (setq tab-always-indent 'complete)
-;; (setq which-key-idle-delay 1.0)
 
 (setq company-show-numbers t)
+
 (setq evil-escape-key-sequence "fd")
+
 (setq doom-localleader-key ",")
 (setq doom-font (font-spec :family "Source Code Pro" :size 22))
+(setq doom-theme 'doom-solarized-light)
+
 (prefer-coding-system 'utf-8-unix)
 (when (display-graphic-p)
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
-
-(setq doom-theme 'doom-solarized-light)
 
 (after! ivy-rich
   (plist-put ivy-rich--display-transformers-list 'ivy-switch-buffer
@@ -75,7 +74,7 @@ f1/f2/f-n:NthAct \
 
 (setq make-backup-files t)
 
-(setq lsp-python-ms-dir
-      (expand-file-name "~/GitHub/python-language-server/output/bin/Release/"))
+;; (setq lsp-python-ms-dir
+;;       (expand-file-name "~/GitHub/python-language-server/output/bin/Release/"))
 (setq lsp-python-ms-executable
       (expand-file-name "~/.local/bin/Microsoft.Python.LanguageServer"))

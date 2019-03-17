@@ -16,3 +16,4 @@
 (package! helm-ls-git)
 (package! helm-swoop)
 (package! nswbuff)
+(package! ace-popup-menu)
