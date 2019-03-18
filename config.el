@@ -23,6 +23,7 @@
 (def-package! helm-swoop)
 (def-package! nswbuff)
 (def-package! ace-popup-menu)
+(def-package! symbol-overlay)
 
 (after! helm
   (helm-autoresize-mode 1)

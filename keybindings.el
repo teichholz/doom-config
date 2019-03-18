@@ -1,35 +1,13 @@
-;;; ~/.doom.d/keybindings.el -*- lexical-binding: t; -*-
-
-(after! org
-  (map! :map org-mode-map
-        :ni "M-p" #'make-python-src-block!))
-
-(map! :n "g K" #'dash-at-point)
-(map! :i "H-d" 'dabbrev-expand)
-(map! :i "H-x" 'evil-delete-backward-char
-      :i "H-w" 'backward-kill-word)
-
- 
-(map! :after drag-stuff
-      :n "C-M-j" #'drag-stuff-down
-      :n "C-M-k" #'drag-stuff-up)
-
-(map! :after avy
-      :prefix "M-g"
-      :n "k" 'avy-kill-region
-      :n "r" 'avy-move-region
-      :n "l" 'avy-move-lin
-)
+;; Leichtes markieren mit Hyper m
 (map! :after helm
       :map (helm-find-files-map helm-buffer-map helm-M-x-map)
       "H-m" 'helm-toggle-visible-mark)
+;; Universelle Argument in helm buffern
+(map!
+ :map helm-map
+ "C-u" 'universal-argument)
 
 (map! :n "U" #'undo-tree-redo)
-
-(map! :g "H-," #'previous-buffer
-      :g "H-." #'next-buffer
-      :g "H-[" #'previous-buffer
-      :g "H-]" #'next-buffer)
 
 (map! :map dired-mode-map
       :n "F" 'counsel-dired-jump)
@@ -55,6 +33,7 @@
 (after! which-key
   (define-key which-key-mode-map (kbd "<f1> C-h") 'which-key-C-h-dispatch))
 
+;; in evil integriert via evil-escape-key-sequence
 ;; (general-def :states 'insert
 ;;   "j" (general-key-dispatch 'self-insert-command
 ;;         :timeout 0.25
@@ -81,9 +60,9 @@
  :n "q" 'evil-record-macro
  :n "f" 'avy-goto-char-2 "f")
 
+
 (map!
- :map helm-map
- "C-u" 'universal-argument)
+ :n "*" 'symbol-overlay-put)
 
 (map!
  :n "<C-tab>" 'nswbuff-switch-to-next-buffer

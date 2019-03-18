@@ -76,9 +76,9 @@
        ;;docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
-       f
        ;;flyspell          ; tasing you for misspelling mispelling
        ;;gist              ; interacting with github gists
+       flycheck
        lsp
        macos             ; MacOS-specific commands
        magit             ; a git porcelain for Emacs

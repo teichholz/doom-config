@@ -17,3 +17,4 @@
 (package! helm-swoop)
 (package! nswbuff)
 (package! ace-popup-menu)
+(package! symbol-overlay)
