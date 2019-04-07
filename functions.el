@@ -82,3 +82,8 @@
 (defun launch-in-adobe (file)
   (async-shell-command (concat "open -a 'Adobe Acrobat Reader DC' " (shell-quote-argument file)))
   (kill-this-buffer))
+
+(defun turn-on-dired-filter-mode ()
+  (interactive)
+  (dired-filter-mode 1)
+  (dired-filter-group-mode 1))

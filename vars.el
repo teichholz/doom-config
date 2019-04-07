@@ -83,3 +83,15 @@
 
 (setq dired-open-extensions-elisp '(("pdf" . launch-in-adobe)))
 (setq dired-open-functions '(dired-open-call-function-by-extension dired-open-by-extension dired-open-subdir))
+
+(setq dired-filter-group-saved-groups '(("default"
+                                         ("PDF"
+                                          (extension . "pdf"))
+                                         ("LaTeX"
+                                          (extension "tex" "bib"))
+                                         ("Org"
+                                          (extension . "org"))
+                                         ("Archives"
+                                          (extension "zip" "rar" "gz" "bz2" "tar"))
+                                         ("Pictures"
+                                          (extension "png" "jpg" "svg")))))

@@ -41,16 +41,6 @@
 
 (advice-add 'helpful-update :after #'elisp-demos-advice-helpful-update)
 
-(add-hook! dired-mode-hook '(turn-off-evil-matchit-mode ))
+(add-hook 'dired-mode-hook 'turn-off-evil-matchit-mode)
+(add-hook 'dired-mode-hook 'turn-on-dired-filter-mode)
 
-(add-hook! dired-mode-hook (dired-filter-mode 1) (dired-filter-group-mode 1))
-
-(setq dired-filter-group-saved-groups '(("default"
-                                         ("PDF"
-                                          (extension . "pdf"))
-                                         ("LaTeX"
-                                          (extension "tex" "bib"))
-                                         ("Org"
-                                          (extension . "org"))
-                                         ("Archives"
-                                          (extension "zip" "rar" "gz" "bz2" "tar")))))
