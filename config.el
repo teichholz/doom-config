@@ -24,6 +24,10 @@
 (def-package! nswbuff)
 (def-package! ace-popup-menu)
 (def-package! symbol-overlay)
+(def-package! dired-filter)
+(def-package! dired-open)
+(def-package! dired-narrow)
+(def-package! dired-subtree)
 
 (after! helm
   (helm-autoresize-mode 1)
@@ -37,3 +41,16 @@
 
 (advice-add 'helpful-update :after #'elisp-demos-advice-helpful-update)
 
+(add-hook! dired-mode-hook '(turn-off-evil-matchit-mode ))
+
+(add-hook! dired-mode-hook (dired-filter-mode 1) (dired-filter-group-mode 1))
+
+(setq dired-filter-group-saved-groups '(("default"
+                                         ("PDF"
+                                          (extension . "pdf"))
+                                         ("LaTeX"
+                                          (extension "tex" "bib"))
+                                         ("Org"
+                                          (extension . "org"))
+                                         ("Archives"
+                                          (extension "zip" "rar" "gz" "bz2" "tar")))))

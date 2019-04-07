@@ -71,11 +71,14 @@
 
 (defun own/updatedb ()
   (interactive)
-  (async-shell-command "sudo /usr/libexec/locate.updatedb -I 0 -U $HOME")
-  (message "Locatedb aktualisiert"))
+  (async-shell-command "cd $HOME;sudo /usr/libexec/locate.updatedb -I 0 -U $HOME"))
 
 (defun set-exec-path-from-shell-PATH ()
   (let ((path-from-shell
          (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
     (setenv "PATH" path-from-shell)
     (setq exec-path (split-string path-from-shell path-separator))))
+
+(defun launch-in-adobe (file)
+  (async-shell-command (concat "open -a 'Adobe Acrobat Reader DC' " (shell-quote-argument file)))
+  (kill-this-buffer))

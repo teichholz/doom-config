@@ -78,3 +78,8 @@
 ;;       (expand-file-name "~/GitHub/python-language-server/output/bin/Release/"))
 (setq lsp-python-ms-executable
       (expand-file-name "~/.local/bin/Microsoft.Python.LanguageServer"))
+
+(setq confirm-kill-emacs nil)
+
+(setq dired-open-extensions-elisp '(("pdf" . launch-in-adobe)))
+(setq dired-open-functions '(dired-open-call-function-by-extension dired-open-by-extension dired-open-subdir))

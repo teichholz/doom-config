@@ -9,8 +9,6 @@
 
 (map! :n "U" #'undo-tree-redo)
 
-(map! :map dired-mode-map
-      :n "F" 'counsel-dired-jump)
 
 (map!
  :prefix "H-h"
@@ -70,3 +68,24 @@
 
 (map!
  :n "J" 'avy-goto-char-2)
+
+(map!
+ :map dired-mode-map
+ :n "%" nil
+ :n "%u" #'dired-upcase
+ :n "%l" #'dired-downcase
+ :n "%d" #'dired-flag-files-regexp
+ :n "%g" #'dired-mark-files-containing-regexp
+ :n "%m" #'dired-mark-files-regexp
+ :n "%r" #'dired-do-rename-regexp
+ :n "%C" #'dired-do-copy-regexp
+ :n "%H" #'dired-do-hardlink-regexp
+ :n "%R" #'dired-do-rename-regexp
+ :n "%S" #'dired-do-symlink-regexp
+ :n "%&" #'dired-flag-garbage-files
+ ;; dired subtree
+ :n "<tab>" #'dired-subtree-cycle
+ )
+
+(map! :map dired-mode-map
+      :n "#" dired-filter-map)
