@@ -70,7 +70,6 @@
  :n "J" 'avy-goto-char-2)
 
 (map!
- :after dired
  :map dired-mode-map
  :n "%" nil
  :n "%u" #'dired-upcase
@@ -84,8 +83,11 @@
  :n "%R" #'dired-do-rename-regexp
  :n "%S" #'dired-do-symlink-regexp
  :n "%&" #'dired-flag-garbage-files
+ :n "%n" #'dired-narrow-regexp
  ;; dired subtree
  :n "<tab>" #'dired-subtree-cycle)
 
-(map! :map dired-mode-map
-      :n "#" dired-filter-map)
+(map!
+ :after evil-matchit
+ :map dired-mode-map
+ :n "#" dired-filter-map)
