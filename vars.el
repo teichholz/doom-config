@@ -59,8 +59,6 @@
   (ivy-rich-mode 1))
 
 (defvar macosx-p (string-match "darwin" (symbol-name system-type)))
-(when macosx-p
-  (set-exec-path-from-shell-PATH))
 
 (setq lsp-ui-sideline-ignore-duplicate t)
 (setq lsp-ui-sideline-enable nil)

@@ -44,3 +44,6 @@
 (add-hook 'dired-mode-hook 'turn-off-evil-matchit-mode)
 (add-hook 'dired-mode-hook 'turn-on-dired-filter-mode)
 
+
+;; (when macosx-p
+;;   (set-exec-path-from-shell-PATH))
