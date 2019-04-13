@@ -24,6 +24,7 @@
  helm-display-buffer-height 50
  helm-display-buffer-default-height 1
  helm-locate-recursive-dirs-command "mdfind -onlyin '%s' -name '%s'")
+(setq helm-locate-command "mdfind -name '%s' %s")
 
 (setq tab-always-indent 'complete)
 
@@ -38,25 +39,6 @@
 (prefer-coding-system 'utf-8-unix)
 (when (display-graphic-p)
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
-
-(after! ivy-rich
-  (plist-put ivy-rich--display-transformers-list 'ivy-switch-buffer
-             '(:columns
-               (
-                (ivy-rich-candidate (:width 30)) ; return the candidate itself
-                (ivy-rich-switch-buffer-size (:width 7)) ; return the buffer size
-                (ivy-rich-switch-buffer-indicators (:width 4 :face error :align right)) ; return the buffer indicators
-                (ivy-rich-switch-buffer-major-mode (:width 12 :face warning)) ; return the major mode info
-                ;; ((lambda (candidat) (with-current-buffer
-                ;;                    (get-buffer candidat)
-                ;;                  (doom-project-name))) (:width 15 :face success))
-                ;; (ivy-rich-switch-buffer-project (:width 15 :face success)) ; return project name using `projectile'
-                ;; (ivy-rich-switch-buffer-path (:width 15))
-                ) ; return file path relative to project root or `default-directory' if project is nil
-               :predicate
-               (lambda (cand) (get-buffer cand))))
-  (ivy-rich-mode 0)
-  (ivy-rich-mode 1))
 
 (defvar macosx-p (string-match "darwin" (symbol-name system-type)))
 
