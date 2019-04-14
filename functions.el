@@ -120,3 +120,7 @@
   "sudo sshfs -o allow_other,defer_permissions root@xxx.xxx.xxx.xxx:/ /mnt/droplet"
   (interactive)
   (shell-command "sudo sshfs -o allow_other,defer_permissions,fsname=Datenbanken sysadmin@172.22.160.125:/ /mnt/mdb"))
+
+(defun tramp-fb4 ()
+  (interactive)
+  (find-file "/ssh:sysadmin@172.22.160.125|sudo:localhost:/home/sysadmin"))
