@@ -17,7 +17,7 @@
     \\[helm-help]:Help \
     \\[helm-select-action]:Act \
     \\[helm-maybe-exit-minibuffer]/\
-    f1/f2/f-n:NthAct \
+    f1/f2/f-n:NthAct
     \\[helm-toggle-suspend-update]:Tog.suspend"
  helm-ff-auto-update-initial-value t
  helm-find-files-doc-header " (\\<helm-find-files-map>\\[helm-find-files-up-one-level]: Go up one level)"
