@@ -61,9 +61,6 @@
 
 (setq confirm-kill-emacs nil)
 
-(setq dired-open-extensions-elisp '(("pdf" . launch-in-adobe)))
-(setq dired-open-functions '(dired-open-call-function-by-extension dired-open-by-extension dired-open-subdir))
-
 (setq dired-filter-group-saved-groups '(("default"
                                          ("PDF"
                                           (extension . "pdf"))
@@ -75,3 +72,10 @@
                                           (extension "zip" "rar" "gz" "bz2" "tar"))
                                          ("Pictures"
                                           (extension "png" "jpg" "svg")))))
+
+(setq dired-launch-default-launcher "open -a")
+(setq dired-sidebar-subtree-line-prefix "__")
+(setq dired-sidebar-theme 'vscode)
+(setq dired-sidebar-use-term-integration t)
+(setq dired-sidebar-use-custom-font t)
+(setq dired-sidebar-icon-scale 1)

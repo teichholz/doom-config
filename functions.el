@@ -79,9 +79,6 @@
 ;;     (setenv "PATH" path-from-shell)
 ;;     (setq exec-path (split-string path-from-shell path-separator))))
 
-(defun launch-in-adobe (file)
-  (async-shell-command (concat "open -a 'Adobe Acrobat Reader DC' " (shell-quote-argument file)))
-  (kill-this-buffer))
 
 (defun turn-on-dired-filter-mode ()
   (interactive)

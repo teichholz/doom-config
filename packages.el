@@ -19,6 +19,7 @@
 (package! ace-popup-menu)
 (package! symbol-overlay)
 (package! dired-filter)
-(package! dired-open)
 (package! dired-narrow)
 (package! dired-subtree)
+(package! dired-sidebar)
+(package! dired-launch)
