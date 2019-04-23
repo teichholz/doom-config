@@ -38,7 +38,7 @@
 (add-hook! eshell-mode
   (company-mode 1))
 
-(evil-avy-mode 1)
+(add-hook 'prog-mode-hook 'turn-on-evil-avy-mode)
 
 (advice-add 'helpful-update :after #'elisp-demos-advice-helpful-update)
 

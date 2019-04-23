@@ -56,9 +56,8 @@
  :map prog-mode-map
  :prefix "q"
  :n "q" 'evil-record-macro
- :n "f" 'avy-goto-char-2
+ :n "f" 'avy-goto-char
  :n "s" 'helm-swoop)
-
 
 (map!
  :n "*" 'symbol-overlay-put)
@@ -96,3 +95,4 @@
 (map!
  :after dired-sidebar
  :n "C-x C-n" 'dired-sidebar-toggle-sidebar)
+

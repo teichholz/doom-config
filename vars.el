@@ -75,7 +75,6 @@
 
 (setq dired-launch-default-launcher "open -a")
 (setq dired-sidebar-subtree-line-prefix "__")
-(setq dired-sidebar-theme 'vscode)
 (setq dired-sidebar-use-term-integration t)
 (setq dired-sidebar-use-custom-font t)
 (setq dired-sidebar-icon-scale 1)
