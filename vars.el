@@ -78,3 +78,6 @@
 (setq dired-sidebar-use-term-integration t)
 (setq dired-sidebar-use-custom-font t)
 (setq dired-sidebar-icon-scale 1)
+
+(setenv "PKG_CONFIG_PATH" "/usr/local/lib/pkgconfig:/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig")
+(setq treemacs-width 25)

@@ -92,7 +92,9 @@
  :map dired-mode-map
  :n "#" dired-filter-map)
 
-(map!
- :after dired-sidebar
- :n "C-x C-n" 'dired-sidebar-toggle-sidebar)
+;; (map!
+;;  :after dired-sidebar
+;;  :n "C-x C-n" 'dired-sidebar-toggle-sidebar)
 
+
+(map! :ng "C-x C-n" '+treemacs/toggle)

@@ -12,7 +12,6 @@
 
 (def-package! pyvenv)
 (def-package! evil-avy)
-(def-package! evil-ex-fasd)
 (def-package! drag-stuff)
 (def-package! pcmpl-args)
 (def-package! auto-yasnippet)
@@ -22,13 +21,15 @@
 (def-package! helm-ls-git)
 (def-package! helm-swoop)
 (def-package! nswbuff)
-(def-package! ace-popup-menu)
 (def-package! symbol-overlay)
 (def-package! dired-filter)
 (def-package! dired-narrow)
 (def-package! dired-subtree)
 (def-package! dired-sidebar)
 (def-package! dired-launch)
+(def-package! let-alist)
+(def-package! tablist)
+(def-package! org-noter)
 
 (after! helm
   (helm-autoresize-mode 1)
