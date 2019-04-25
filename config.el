@@ -58,3 +58,5 @@
         ;; an OpenDocument text file with the odt extension
         ("odt" ("libreofficedev5.3" "abiword"))
         ("pdf" ("Adobe Acrobat Reader DC"))))
+
+(add-hook! 'prog-mode-hook #'save-prog-major-mode)

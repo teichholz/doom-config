@@ -98,3 +98,11 @@
 
 
 (map! :ng "C-x C-n" '+treemacs/toggle)
+
+(map! :map pdf-view-mode-map
+      :n "i" 'org-noter-insert-note
+      :n "I" 'org-noter-insert-precise-note
+      :n "M-n" 'org-noter-sync-next-note
+      :n "M-p" 'org-noter-sync-prev-note
+      :n "n" 'org-noter
+      :n "N" 'org-noter-kill-session)

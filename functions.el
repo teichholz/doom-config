@@ -125,3 +125,12 @@
 (defun tramp-fb4 ()
   (interactive)
   (find-file "/ssh:sysadmin@172.22.160.125|sudo:localhost:/home/sysadmin"))
+
+(defun save-prog-major-mode ()
+  (setq prog-major-mode
+        (case major-mode
+          ((emacs-lisp-mode) "emacs-lisp")
+          ((python-mode) "python")
+          ((c++-mode) "c++")
+          ((js2-mode) "js"))))
+

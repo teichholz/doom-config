@@ -81,3 +81,21 @@
 
 (setenv "PKG_CONFIG_PATH" "/usr/local/lib/pkgconfig:/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig")
 (setq treemacs-width 25)
+
+(setq org-directory (expand-file-name "~/Documents/org"))
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+(setq +org-code-file (concat org-directory "/code.org"))
+(setq org-startup-with-inline-images t)
+
+(after! org
+  (push (list "c" "templates for code") org-capture-templates)
+  (push (list "ce" "emacs snippet" 'entry (list 'file+headline +org-code-file "Emacs lisp")
+         "* Elisp Snippet: %?\n  #+BEGIN_SRC emacs-lisp \n %i\n #+END_SRC\n  %a")
+        org-capture-templates)
+  (push (list "ca" "algorithm snippet" 'entry (list 'file+headline +org-code-file "Algorithms")
+         "* Algorithm: %?\n  #+BEGIN_SRC %(symbol-value 'prog-major-mode) \n %i\n #+END_SRC\n  %a")
+        org-capture-templates))
+
+
+(setq org-noter-notes-window-location "Vertical"
+      org-noter-doc-split-fraction '(0.8 . 0.8))
