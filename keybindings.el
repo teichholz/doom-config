@@ -21,8 +21,6 @@
  :n "H-p" 'hydra-projectile/body)
 (map! :n
       "H-w" 'jp-window/body)
-(map! :map dired-mode-map
-      :n "." 'hydra-dired/body)
 
 (map! :i "M-v" 'evil-paste-before)
 (map! :map +popup-mode-map
@@ -56,7 +54,7 @@
  :map prog-mode-map
  :prefix "q"
  :n "q" 'evil-record-macro
- :n "f" 'avy-goto-char
+ :n "c" 'avy-goto-char
  :n "s" 'helm-swoop)
 
 (map!
@@ -91,11 +89,6 @@
  :after evil-matchit
  :map dired-mode-map
  :n "#" dired-filter-map)
-
-;; (map!
-;;  :after dired-sidebar
-;;  :n "C-x C-n" 'dired-sidebar-toggle-sidebar)
-
 
 (map! :ng "C-x C-n" '+treemacs/toggle)
 

@@ -72,14 +72,22 @@
                                           (extension "zip" "rar" "gz" "bz2" "tar"))
                                          ("Pictures"
                                           (extension "png" "jpg" "svg")))))
-
 (setq dired-launch-default-launcher "open -a")
 (setq dired-sidebar-subtree-line-prefix "__")
 (setq dired-sidebar-use-term-integration t)
 (setq dired-sidebar-use-custom-font t)
 (setq dired-sidebar-icon-scale 1)
+(setf dired-launch-extensions-map
+      '(;; specify LibreOffice as the preferred application for
+        ;; a Microsoft Excel file with the xslx extension
+        ("xlsx" ("libreofficedev5.3"))
+        ;; specify LibreOffice and Abiword as preferred applications for
+        ;; an OpenDocument text file with the odt extension
+        ("odt" ("libreofficedev5.3" "abiword"))
+        ("pdf" ("Adobe Acrobat Reader DC"))))
 
 (setenv "PKG_CONFIG_PATH" "/usr/local/lib/pkgconfig:/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig")
+
 (setq treemacs-width 25)
 
 (setq org-directory (expand-file-name "~/Documents/org"))
@@ -96,6 +104,8 @@
          "* Algorithm: %?\n  #+BEGIN_SRC %(symbol-value 'prog-major-mode) \n %i\n #+END_SRC\n  %a")
         org-capture-templates))
 
-
 (setq org-noter-notes-window-location "Vertical"
       org-noter-doc-split-fraction '(0.8 . 0.8))
+
+;; da osx
+(setq menu-bar-mode 1)

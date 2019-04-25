@@ -132,5 +132,6 @@
           ((emacs-lisp-mode) "emacs-lisp")
           ((python-mode) "python")
           ((c++-mode) "c++")
-          ((js2-mode) "js"))))
-
+          ((js2-mode) "js")
+          ((racket-mode) "scheme")
+          ((java-mode) "java"))))

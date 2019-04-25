@@ -50,13 +50,5 @@
 ;; (when macosx-p
 ;;   (set-exec-path-from-shell-PATH))
 
-(setf dired-launch-extensions-map
-      '(;; specify LibreOffice as the preferred application for
-        ;; a Microsoft Excel file with the xslx extension
-        ("xlsx" ("libreofficedev5.3"))
-        ;; specify LibreOffice and Abiword as preferred applications for
-        ;; an OpenDocument text file with the odt extension
-        ("odt" ("libreofficedev5.3" "abiword"))
-        ("pdf" ("Adobe Acrobat Reader DC"))))
 
 (add-hook! 'prog-mode-hook #'save-prog-major-mode)
