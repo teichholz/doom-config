@@ -99,3 +99,7 @@
       :n "M-p" 'org-noter-sync-prev-note
       :n "n" 'org-noter
       :n "N" 'org-noter-kill-session)
+
+(map! :map ctl-x-map
+      "b" '+helm/workspace-mini
+      "B" 'helm-buffers-list)
