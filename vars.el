@@ -107,5 +107,7 @@
 (setq org-noter-notes-window-location "Vertical"
       org-noter-doc-split-fraction '(0.8 . 0.8))
 
-;; da osx
+;; visuell angenehm, da macos
 (setq menu-bar-mode 1)
+
+(setq doom-scratch-buffer-major-mode t)

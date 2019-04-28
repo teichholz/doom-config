@@ -8,7 +8,7 @@
  "C-u" 'universal-argument)
 
 (map! :n "U" #'undo-tree-redo)
-
+(map! :i "M-e" 'hippie-expand)
 
 (map!
  :prefix "H-h"
