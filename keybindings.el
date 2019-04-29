@@ -55,7 +55,8 @@
  :prefix "q"
  :n "q" 'evil-record-macro
  :n "c" 'avy-goto-char
- :n "s" 'helm-swoop)
+ :n "s" 'helm-swoop
+ :n "f" 'format-all-buffer)
 
 (map!
  :n "*" 'symbol-overlay-put)

@@ -23,7 +23,7 @@
  helm-find-files-doc-header " (\\<helm-find-files-map>\\[helm-find-files-up-one-level]: Go up one level)"
  helm-display-buffer-height 50
  helm-display-buffer-default-height 1
- helm-locate-recursive-dirs-command "mdfind -onlyin '%s' -name '%s'"
+ helm-locate-recursive-dirs-command "mdfind -onlyin %s %s"
  helm-locate-command "mdfind -name '%s' %s")
 
 (setq tab-always-indent 'complete)
@@ -98,16 +98,16 @@
 (after! org
   (push (list "c" "templates for code") org-capture-templates)
   (push (list "ce" "emacs snippet" 'entry (list 'file+headline +org-code-file "Emacs lisp")
-         "* Elisp Snippet: %?\n  #+BEGIN_SRC emacs-lisp \n %i\n #+END_SRC\n  %a")
+              "* Elisp Snippet: %?\n  #+BEGIN_SRC emacs-lisp \n %i\n #+END_SRC\n  %a")
         org-capture-templates)
   (push (list "ca" "algorithm snippet" 'entry (list 'file+headline +org-code-file "Algorithms")
-         "* Algorithm: %?\n  #+BEGIN_SRC %(symbol-value 'prog-major-mode) \n %i\n #+END_SRC\n  %a")
+              "* Algorithm: %?\n  #+BEGIN_SRC %(symbol-value 'prog-major-mode) \n %i\n #+END_SRC\n  %a")
         org-capture-templates))
 
 (setq org-noter-notes-window-location "Vertical"
       org-noter-doc-split-fraction '(0.8 . 0.8))
 
 ;; visuell angenehm, da macos
-(setq menu-bar-mode 1)
+(menu-bar-mode 1)
 
 (setq doom-scratch-buffer-major-mode t)
