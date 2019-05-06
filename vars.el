@@ -59,7 +59,8 @@
 (setq lsp-python-ms-executable
       (expand-file-name "~/.local/bin/Microsoft.Python.LanguageServer"))
 
-(setq confirm-kill-emacs nil)
+(setq confirm-kill-emacs nil
+      confirm-kill-processes nil)
 
 (setq dired-filter-group-saved-groups '(("default"
                                          ("PDF"

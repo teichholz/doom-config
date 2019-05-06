@@ -104,3 +104,5 @@
 (map! :map ctl-x-map
       "b" '+helm/workspace-mini
       "B" 'helm-buffers-list)
+
+(map! :n "g K" 'dash-at-point)

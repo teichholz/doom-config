@@ -36,7 +36,7 @@
        evil-goggles              ; display visual hints when editing in evil
        ;;fci               ; a `fill-column' indicator
        hl-todo    ; highlight TODO/FIXME/NOTE tags
-       modeline          ; snazzy, Atom-inspired modeline, plus API
+       ;; modeline          ; snazzy, Atom-inspired modeline, plus API
         ;; nav-flash
                                         ; blink the current line after jumping
        ;;neotree           ; a project drawer, like NERDTree for vim
@@ -44,9 +44,9 @@
        (popup                     ; tame sudden yet inevitable temporary windows
         +all                      ; catch all popups that start with an asterix
         +defaults)                ; default popup rules
-       pretty-code       ; replace bits of code with pretty symbols
+       ;; pretty-code       ; replace bits of code with pretty symbols
        ;;tabbar            ; FIXME an (incomplete) tab bar for Emacs
-       unicode           ; extended unicode support for various languages
+       ;; unicode           ; extended unicode support for various languages
        vc-gutter                        ; vcs diff in the fringe
        vi-tilde-fringe                  ; fringe tildes to mark beyond EOB
        window-select                    ; visually switch windows
@@ -73,7 +73,7 @@
 
        :tools
        ;;ansible
-       ;;docker
+       docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        ;;flyspell          ; tasing you for misspelling mispelling

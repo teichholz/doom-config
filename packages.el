@@ -24,3 +24,4 @@
 (package! let-alist)
 (package! tablist)
 (package! org-noter)
+;; (package! nov)

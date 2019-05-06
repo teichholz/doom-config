@@ -30,6 +30,7 @@
 (def-package! let-alist)
 (def-package! tablist)
 (def-package! org-noter)
+;; (def-package! nov)
 
 (after! helm
   (helm-autoresize-mode 1)
@@ -40,6 +41,7 @@
   (company-mode 1))
 
 (add-hook 'prog-mode-hook 'turn-on-evil-avy-mode)
+(add-hook 'magit-mode-hook 'turn-off-evil-avy-mode)
 
 (advice-add 'helpful-update :after #'elisp-demos-advice-helpful-update)
 
@@ -52,3 +54,5 @@
 
 
 (add-hook! 'prog-mode-hook #'save-prog-major-mode)
+
+;; (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
