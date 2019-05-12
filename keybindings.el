@@ -106,3 +106,6 @@
       "B" 'helm-buffers-list)
 
 (map! :n "g K" 'dash-at-point)
+
+(map! :n "C-w u" 'winner-undo
+      :n "C-w U" 'winner-redo)

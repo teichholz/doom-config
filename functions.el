@@ -139,28 +139,38 @@
           ((racket-mode) "scheme")
           ((java-mode) "java"))))
 
-;; (defun org-insert-src-block (src-code-type)
-;;   "Insert a `SRC-CODE-TYPE' type source code block in org-mode."
-;;   (interactive
-;;    (let ((src-code-types
-;;           '("emacs-lisp" "python" "C" "sh" "java" "js" "clojure" "C++" "css"
-;;             "calc" "asymptote" "dot" "gnuplot" "ledger" "lilypond" "mscgen"
-;;             "octave" "oz" "plantuml" "R" "sass" "screen" "sql" "awk" "ditaa"
-;;             "haskell" "latex" "lisp" "matlab" "ocaml" "org" "perl" "ruby"
-;;             "scheme" "sqlite")))
-;;      (list (helm--completing-read-default "Source code type: " src-code-types))))
-;;   (progn
-;;     (newline-and-indent)
-;;     (insert (format "#+BEGIN_SRC %s\n" src-code-type))
-;;     (newline-and-indent)
-;;     (insert "#+END_SRC\n")
-;;     (previous-line 2)
-;;     (org-edit-src-code)))
+(defun org-insert-src-block (src-code-type)
+  "Insert a `SRC-CODE-TYPE' type source code block in org-mode."
+  (interactive
+   (let ((src-code-types
+          '("emacs-lisp" "python" "C" "sh" "java" "js" "clojure" "C++" "css"
+            "calc" "asymptote" "dot" "gnuplot" "ledger" "lilypond" "mscgen"
+            "octave" "oz" "plantuml" "R" "sass" "screen" "sql" "awk" "ditaa"
+            "haskell" "latex" "lisp" "matlab" "ocaml" "org" "perl" "ruby"
+            "scheme" "sqlite")))
+     (list (helm--completing-read-default "Source code type: " src-code-types))))
+  (progn
+    (newline-and-indent)
+    (insert (format "#+BEGIN_SRC %s\n" src-code-type))
+    (newline-and-indent)
+    (insert "#+END_SRC\n")
+    (previous-line 2)
+    (org-edit-src-code)))
 
 
-;; (defmacro with-helm (&rest body)
-;;   `(let ((completing-read-function 'helm--completing-read-default)
-;;          (read-file-name-function  'helm--generic-read-file-name)
-;;          (read-buffer-function  'helm--generic-read-buffer)
-;;          (completion-in-region-function  'helm--completion-in-region))
-;;      ,@body)))
+(defmacro with-helm (&rest body)
+  `(let ((completing-read-function 'helm--completing-read-default)
+         (read-file-name-function  'helm--generic-read-file-name)
+         (read-buffer-function  'helm--generic-read-buffer)
+         (completion-in-region-function  'helm--completion-in-region))
+     ,@body))
+
+(defun wrap-line ()
+  (interactive)
+  (save-excursion
+    (back-to-indentation)
+    (kill-region
+     (point)
+     (line-end-position)))
+  (insert "if(" (concat "" (yank)) ")" "\n" "{\n}")
+  (message "wrapped"))

@@ -1,6 +1,5 @@
 ;; gets loaded after any modules
 
-(load! "./functions.el")
 (load! "./vars.el")
 (load! "./dash-at-point.el")
 (load! "./winum.el")
@@ -8,6 +7,7 @@
 (load! "./packages/python-lsp-ms.el")
 (load! "./hydras.el")
 (load! "./keybindings.el")
+(load! "./functions.el")
 (load! "./documentation.el")
 
 (def-package! pyvenv)
@@ -48,6 +48,7 @@
 (add-hook 'dired-mode-hook 'turn-off-evil-matchit-mode)
 (add-hook 'dired-mode-hook 'turn-on-dired-filter-mode)
 
+(linum-mode 0)
 
 ;; (when macosx-p
 ;;   (set-exec-path-from-shell-PATH))
