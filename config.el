@@ -11,7 +11,6 @@
 (load! "./documentation.el")
 
 (def-package! pyvenv)
-(def-package! evil-avy)
 (def-package! drag-stuff)
 (def-package! pcmpl-args)
 (def-package! auto-yasnippet)
@@ -57,3 +56,4 @@
 (add-hook! 'prog-mode-hook #'save-prog-major-mode)
 
 ;; (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+(setq lsp-print-io t)

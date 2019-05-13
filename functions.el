@@ -162,7 +162,7 @@
   `(let ((completing-read-function 'helm--completing-read-default)
          (read-file-name-function  'helm--generic-read-file-name)
          (read-buffer-function  'helm--generic-read-buffer)
-         (completion-in-region-function  'helm--completion-in-region))
+         ('helm--completion-in-region  completion-in-region-function))
      ,@body))
 
 (defun wrap-line ()
@@ -174,3 +174,4 @@
      (line-end-position)))
   (insert "if(" (concat "" (yank)) ")" "\n" "{\n}")
   (message "wrapped"))
+

@@ -45,6 +45,9 @@
 (setq lsp-ui-sideline-ignore-duplicate t)
 (setq lsp-ui-sideline-enable nil)
 (setq lsp-eldoc-enable-hover nil)
+(setq lsp-ui-doc-use-webkit t)
+(after! lsp-ui
+  (lsp-ui-doc-mode 0))
 
 (setq nswbuff-exclude-buffer-regexps '("^ .*" "^\\*.*\\*"))
 (setq nswbuff-clear-delay 1)
@@ -112,3 +115,6 @@
 (menu-bar-mode 1)
 
 (setq doom-scratch-buffer-major-mode t)
+
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
