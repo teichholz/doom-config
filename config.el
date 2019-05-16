@@ -57,3 +57,5 @@
 (add-hook! 'prog-mode-hook #'save-prog-major-mode)
 
 ;; (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+
+(set-company-backend! 'css-mode 'company-lsp)
