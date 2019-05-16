@@ -44,10 +44,18 @@
 
 (setq lsp-ui-sideline-ignore-duplicate t)
 (setq lsp-ui-sideline-enable nil)
+(setq lsp-ui-doc-mode nil
+      lsp-ui-doc-position 'top
+      lsp-ui-doc-use-webkit t
+      lsp-ui-doc-delay 2
+      lsp-enable-symbol-highlighting 0
+      lsp-ui-doc-max-height '25)
 (setq lsp-eldoc-enable-hover nil)
-(setq lsp-ui-doc-use-webkit t)
+(setq company-lsp-cache-candidates 'auto)
+(setq lsp-ui-mode-hook 'turn-off-lsp-ui-doc)
 (after! lsp-ui
   (lsp-ui-doc-mode 0))
+
 
 (setq nswbuff-exclude-buffer-regexps '("^ .*" "^\\*.*\\*"))
 (setq nswbuff-clear-delay 1)

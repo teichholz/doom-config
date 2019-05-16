@@ -31,6 +31,7 @@
 (def-package! org-noter)
 ;; (def-package! nov)
 
+
 (after! helm
   (helm-autoresize-mode 1)
   (remove-hook 'helm-after-initialize-hook '+helm|hide-mode-line)
@@ -56,4 +57,3 @@
 (add-hook! 'prog-mode-hook #'save-prog-major-mode)
 
 ;; (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
-(setq lsp-print-io t)

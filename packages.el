@@ -24,4 +24,7 @@
 (package! let-alist)
 (package! tablist)
 (package! org-noter)
+;; (package! lsp-mode)
+;; (package! lsp-ui)
+;; (package! company-lsp)
 ;; (package! nov)

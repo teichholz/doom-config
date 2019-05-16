@@ -175,3 +175,7 @@
   (insert "if(" (concat "" (yank)) ")" "\n" "{\n}")
   (message "wrapped"))
 
+
+(defun turn-off-lsp-ui-doc ()
+  (interactive)
+  (lsp-ui-doc-mode 0))
