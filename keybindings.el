@@ -109,3 +109,7 @@
 
 (map! :n "C-w u" 'winner-undo
       :n "C-w U" 'winner-redo)
+
+(map!
+ :map js2-mode-map
+ :n "C-c C-e" 'nodejs-repl-send-buffer)

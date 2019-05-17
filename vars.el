@@ -48,7 +48,7 @@
       lsp-ui-doc-position 'top
       lsp-ui-doc-use-webkit t
       lsp-ui-doc-delay 2
-      lsp-enable-symbol-highlighting 0
+      lsp-enable-symbol-highlighting nil
       lsp-ui-doc-max-height '25)
 (setq lsp-eldoc-enable-hover nil)
 (setq company-lsp-cache-candidates 'auto)
@@ -126,3 +126,5 @@
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
+(set-eshell-alias! "node" "/Users/timeichholz/.nvm/versions/node/v12.2.0/bin/node $1")
+(setq nodejs-repl-command "/Users/timeichholz/.nvm/versions/node/v12.2.0/bin/node")
