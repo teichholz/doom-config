@@ -1,10 +1,13 @@
 ;;; ~/.doom.d/vars.el -*- lexical-binding: t; -*-
+(defvar home (getenv "HOME"))
+
 (setq mac-command-modifier 'meta
       mac-right-option-modifier 'hyper)
 (if (equal (expand-file-name "~") "/Users/tim")
     (setq mac-option-modifier  nil)
   ;; (setq mac-option-modifier 'super)
   (setq mac-option-modifier nil))
+
 
 (setq flycheck-check-syntax-automatically nil)
 
@@ -64,6 +67,7 @@
 (setq evil-echo-state nil)
 
 (setq make-backup-files t)
+
 
 ;; (setq lsp-python-ms-dir
 ;;       (expand-file-name "~/GitHub/python-language-server/output/bin/Release/"))
@@ -126,5 +130,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
-(set-eshell-alias! "node" "/Users/timeichholz/.nvm/versions/node/v12.2.0/bin/node $1")
-(setq nodejs-repl-command "/Users/timeichholz/.nvm/versions/node/v12.2.0/bin/node")
+(set-eshell-alias! "node" (concat home "/.nvm/versions/node/v12.2.0/bin/node $1"))
+(setq nodejs-repl-command (concat home "/.nvm/versions/node/v12.2.0/bin/node"))
+
+(setq magit-git-executable "/usr/bin/git")
