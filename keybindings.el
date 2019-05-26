@@ -99,7 +99,9 @@
       :n "M-n" 'org-noter-sync-next-note
       :n "M-p" 'org-noter-sync-prev-note
       :n "n" 'org-noter
-      :n "N" 'org-noter-kill-session)
+      :n "N" 'org-noter-kill-session
+      :n "J" 'pdf-view-next-page
+      :n "K" 'pdf-view-previous-page)
 
 (map! :map ctl-x-map
       "b" '+helm/workspace-mini
@@ -113,3 +115,6 @@
 (map!
  :map js2-mode-map
  :n "C-c C-e" 'nodejs-repl-send-buffer)
+
+(map!
+ :i "RET" '+default/newline)
