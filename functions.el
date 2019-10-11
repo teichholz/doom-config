@@ -85,12 +85,6 @@
   (dired-filter-mode 1)
   (dired-filter-group-mode 1))
 
-(defun turn-on-evil-avy-mode ()
-  (interactive)
-  (evil-avy-mode 1))
-(defun turn-off-evil-avy-mode ()
-  (interactive)
-  (evil-avy-mode 0))
 
 (defun vpn-fb4-connect ()
   (interactive)

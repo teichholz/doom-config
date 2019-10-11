@@ -1,15 +1,14 @@
 ;;; ~/.doom.d/vars.el -*- lexical-binding: t; -*-
 (defvar home (getenv "HOME"))
+(defvar macosx-p (string-match "darwin" (symbol-name system-type)))
 
 (setq mac-command-modifier 'meta
       mac-right-option-modifier 'hyper)
 (if (equal (expand-file-name "~") "/Users/tim")
-    (setq mac-option-modifier  nil)
+    (setq mac-option-modifier  nil))
   ;; (setq mac-option-modifier 'super)
-  (setq mac-option-modifier nil))
 
 
-(setq flycheck-check-syntax-automatically nil)
 
 (setq
  helm-autoresize-min-height 45
@@ -25,9 +24,14 @@
  helm-ff-auto-update-initial-value t
  helm-find-files-doc-header " (\\<helm-find-files-map>\\[helm-find-files-up-one-level]: Go up one level)"
  helm-display-buffer-height 50
- helm-display-buffer-default-height 1
- helm-locate-recursive-dirs-command "mdfind -onlyin %s %s"
- helm-locate-command "mdfind -name '%s' %s")
+ helm-display-buffer-default-height 1)
+
+
+
+(when macosx-p
+  (setq
+   helm-locate-recursive-dirs-command "mdfind -onlyin %s %s"
+   helm-locate-command "mdfind -name '%s' %s"))
 
 (setq tab-always-indent 'complete)
 
@@ -37,13 +41,12 @@
 
 (setq doom-localleader-key ",")
 (setq doom-font (font-spec :family "Source Code Pro" :size 22))
-(setq doom-theme 'doom-solarized-light)
+(setq doom-theme 'doom-one)
 
 (prefer-coding-system 'utf-8-unix)
 (when (display-graphic-p)
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
 
-(defvar macosx-p (string-match "darwin" (symbol-name system-type)))
 
 (setq lsp-ui-sideline-ignore-duplicate t)
 (setq lsp-ui-sideline-enable nil)
@@ -124,13 +127,24 @@
       org-noter-doc-split-fraction '(0.8 . 0.8))
 
 ;; visuell angenehm, da macos
-(menu-bar-mode 1)
+(if (eql system-type "darwin")
+    (menu-bar-mode 1)
+  (menu-bar-mode 0))
 
 (setq doom-scratch-buffer-major-mode t)
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
-(set-eshell-alias! "node" (concat home "/.nvm/versions/node/v12.2.0/bin/node $1"))
-(setq nodejs-repl-command (concat home "/.nvm/versions/node/v12.2.0/bin/node"))
+(when macosx-p
+  (set-eshell-alias! "node" (concat home "/.nvm/versions/node/v12.2.0/bin/node $1"))
+  (setq nodejs-repl-command (concat home "/.nvm/versions/node/v12.2.0/bin/node")))
 
 (setq magit-git-executable "/usr/bin/git")
+
+
+(setq parinfer-extensions
+      '(defaults
+        pretty-parens
+        paredit
+        smart-tab
+        smart-yank))

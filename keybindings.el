@@ -1,30 +1,35 @@
 ;; Leichtes markieren mit Hyper m
 (map! :after helm
-      :map (helm-find-files-map helm-buffer-map helm-M-x-map)
-      "H-m" 'helm-toggle-visible-mark)
-;; Universelle Argument in helm buffern
-(map!
- :map helm-map
- "C-u" 'universal-argument)
+      (:map (helm-find-files-map helm-buffer-map helm-M-x-map)
+       "H-m" #'helm-toggle-visible-mark)
+      ;; Universelle Argument in helm buffern
+      (:map helm-map
+       "C-u" #'universal-argument)
 
-(map! :n "U" #'undo-tree-redo)
-(map! :i "M-e" 'hippie-expand)
+      ;; Undo Tree
+      :n "U" #'undo-tree-redo
 
-(map!
- :prefix "H-h"
- :n "H-w" 'jp-window/body
- :n "H-c" 'hydra-flycheck/body
- :n "H-f" 'hydra-flycheck/body
- :map prog-mode-map
- :n "H-l" 'hydra-lsp/body
- :map projectile-mode-map
- :n "H-p" 'hydra-projectile/body)
-(map! :n
-      "H-w" 'jp-window/body)
+      ;; Hippie expand
+      :i "M-e" 'hippie-expand
 
-(map! :i "M-v" 'evil-paste-before)
-(map! :map +popup-mode-map
-      :ni "M-r" '+popup/raise)
+      ;; Hydras
+      (:prefix "H-h"
+       :n "H-w" #'jp-window/body
+       :n "H-c" #'hydra-flycheck/body
+       :n "H-f" #'hydra-flycheck/body)
+
+      (:map prog-mode-map
+       :n "H-l" #'hydra-lsp/body)
+
+      (:map projectile-mode-map
+       :n "H-p" #'hydra-projectile/body)
+
+
+      ;; Pasting
+      :i "M-v" #'evil-paste-before
+
+      :map +popup-mode-map
+      :n "M-r" #'+popup/raise)
 
 (after! which-key
   (define-key which-key-mode-map (kbd "<f1> C-h") 'which-key-C-h-dispatch))
@@ -56,7 +61,8 @@
  :n "q" 'evil-record-macro
  :n "c" 'avy-goto-char
  :n "s" 'helm-swoop
- :n "f" 'format-all-buffer)
+ :n "f" 'format-all-buffer
+ :n "w" 'jp-window/body)
 
 (map!
  :n "*" 'symbol-overlay-put)
@@ -117,4 +123,18 @@
  :n "C-c C-e" 'nodejs-repl-send-buffer)
 
 (map!
- :i "RET" '+default/newline)
+ :n "g t" 'centaur-tabs-forward
+ :n "g T" 'centaur-tabs-backward)
+;; (map!
+;;  :i "RET" '+default/newline)
+
+;; Latex
+(map!
+ :map LaTeX-mode-map
+ :prefix doom-localleader-key
+ :n "p" 'latex-preview-pane-mode)
+
+
+(map!
+ :map paredit-mode-map
+ :ni "C-k" #'paredit-kill)

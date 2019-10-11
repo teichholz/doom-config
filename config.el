@@ -1,11 +1,11 @@
 ;; gets loaded after any modules
 
 (load! "./vars.el")
-(load! "./dash-at-point.el")
+;; (load! "./dash-at-point.el")
 (load! "./winum.el")
-(load! "./lispyville.el")
+;; (load! "./lispyville.el")
 ;; (load! "./packages/python-lsp-ms.el")
-;; (load! "./hydras.el")
+(load! "./hydras.el")
 (load! "./keybindings.el")
 (load! "./functions.el")
 (load! "./documentation.el")
@@ -27,6 +27,7 @@
 (def-package! dired-sidebar)
 (def-package! dired-launch)
 (def-package! let-alist)
+(def-package! parinfer)
 (def-package! tablist)
 (def-package! org-noter)
 ;; (def-package! nov)
@@ -40,12 +41,8 @@
 (add-hook! eshell-mode
   (company-mode 1))
 
-(add-hook 'prog-mode-hook 'turn-on-evil-avy-mode)
-(add-hook 'magit-mode-hook 'turn-off-evil-avy-mode)
-
 (advice-add 'helpful-update :after #'elisp-demos-advice-helpful-update)
 
-(add-hook 'dired-mode-hook 'turn-off-evil-matchit-mode)
 (add-hook 'dired-mode-hook 'turn-on-dired-filter-mode)
 
 (linum-mode 0)
@@ -59,3 +56,18 @@
 ;; (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
 (set-company-backend! 'css-mode 'company-lsp)
+
+(cljr-add-keybindings-with-prefix "C-c C-m")
+(setq cljr-warn-on-eval nil)
+
+(doom-modeline-mode)
+
+;; Paredit mode
+(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+(add-hook 'clojure-mode-hook           #'enable-paredit-mode)
