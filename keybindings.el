@@ -4,7 +4,8 @@
        "H-m" #'helm-toggle-visible-mark)
       ;; Universelle Argument in helm buffern
       (:map helm-map
-       "C-u" #'universal-argument)
+        "C-u" #'universal-argument
+        "<tab>" #'helm-select-action)
 
       ;; Undo Tree
       :n "U" #'undo-tree-redo
@@ -29,7 +30,7 @@
       :i "M-v" #'evil-paste-before
 
       :map +popup-mode-map
-      :n "M-r" #'+popup/raise)
+      :n "C-r" #'+popup/raise)
 
 (after! which-key
   (define-key which-key-mode-map (kbd "<f1> C-h") 'which-key-C-h-dispatch))

@@ -33,10 +33,10 @@
 ;; (def-package! nov)
 
 
-(after! helm
-  (helm-autoresize-mode 1)
-  (remove-hook 'helm-after-initialize-hook '+helm|hide-mode-line)
-  (advice-remove 'helm-display-mode-line '+helm|hide-mode-line))
+;; (after! helm
+;;   (helm-autoresize-mode 1)
+;;   (remove-hook 'helm-after-initialize-hook '+helm|hide-mode-line)
+;;   (advice-remove 'helm-display-mode-line '+helm|hide-mode-line))
 
 (add-hook! eshell-mode
   (company-mode 1))
