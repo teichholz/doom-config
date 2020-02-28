@@ -29,3 +29,9 @@
 ;; (package! lsp-ui)
 ;; (package! company-lsp)
 ;; (package! nov)
+
+;; org mode
+(package! org-sidebar)
+(package! org-ql)
+(package! org-web-tools)
+(package! org-make-toc)

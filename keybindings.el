@@ -124,8 +124,8 @@
  :n "C-c C-e" 'nodejs-repl-send-buffer)
 
 (map!
- :n "g t" 'centaur-tabs-forward
- :n "g T" 'centaur-tabs-backward)
+ :n "g T" 'centaur-tabs-forward
+ :n "g t" 'centaur-tabs-backward)
 ;; (map!
 ;;  :i "RET" '+default/newline)
 
@@ -139,3 +139,18 @@
 (map!
  :map paredit-mode-map
  :ni "C-k" #'paredit-kill)
+
+(map!
+ :map org-mode-map
+ :prefix "M-SPC"
+ (:desc "insert"
+  :prefix "i"
+   :n "H" 'org-insert-heading
+   :n "h" 'org-insert-subheading
+   :n "s" 'org-insert-src-block
+   :n "l u" 'org-web-tools-insert-link-for-url)
+ (:desc "heading"
+  :prefix "h"
+   :n "a" 'helm-org-agenda-files-headings
+   :n "b" 'helm-org-in-buffer-headings
+   :n "p" 'helm-org-parent-headings))

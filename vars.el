@@ -50,17 +50,17 @@
 
 (setq lsp-ui-sideline-ignore-duplicate t)
 (setq lsp-ui-sideline-enable nil)
-(setq lsp-ui-doc-mode nil
-      lsp-ui-doc-position 'top
-      lsp-ui-doc-use-webkit t
-      lsp-ui-doc-delay 2
-      lsp-enable-symbol-highlighting nil
-      lsp-ui-doc-max-height '25)
-(setq lsp-eldoc-enable-hover nil)
+;; (setq lsp-ui-doc-mode nil
+;;       lsp-ui-doc-position 'top
+;;       lsp-ui-doc-use-webkit t
+;;       lsp-ui-doc-delay 2
+;;       lsp-enable-symbol-highlighting nil
+;;       lsp-ui-doc-max-height '25)
+;; (setq lsp-eldoc-enable-hover nil)
 (setq company-lsp-cache-candidates 'auto)
-(setq lsp-ui-mode-hook 'turn-off-lsp-ui-doc)
-(after! lsp-ui
-  (lsp-ui-doc-mode 0))
+;; (setq lsp-ui-mode-hook 'turn-off-lsp-ui-doc)
+;; (after! lsp-ui
+;;   (lsp-ui-doc-mode 0))
 
 
 (setq nswbuff-exclude-buffer-regexps '("^ .*" "^\\*.*\\*"))
@@ -74,8 +74,6 @@
 
 ;; (setq lsp-python-ms-dir
 ;;       (expand-file-name "~/GitHub/python-language-server/output/bin/Release/"))
-(setq lsp-python-ms-executable
-      (expand-file-name "~/.local/bin/Microsoft.Python.LanguageServer"))
 
 (setq confirm-kill-emacs nil
       confirm-kill-processes nil)
@@ -148,3 +146,7 @@
         paredit
         smart-tab
         smart-yank))
+
+(setq enable-local-variables :all)
+(setq latex-run-command "latex -shell-escape")
+
