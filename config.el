@@ -1,5 +1,5 @@
 ;; gets loaded after any modules
-(fset 'battery-update #'ignore)
+;; (fset 'battery-update #'ignore)
 
 (load! "./vars.el")
 ;; (load! "./dash-at-point.el")
@@ -8,47 +8,47 @@
 ;; (load! "./packages/python-lsp-ms.el")
 ;;(load! "./hydras.el")
 (load! "./keybindings.el")
-;;(load! "./functions.el")
+(load! "./functions.el")
 ;;(load! "./documentation.el")
 (load! "./packages/llvm-mode.el")
 
 
-(def-package! symbol-overlay)
-(def-package! dired-filter)
-(def-package! dired-narrow)
-(def-package! dired-subtree)
-(def-package! dired-sidebar)
-(def-package! dired-launch)
+(use-package! symbol-overlay)
+(use-package! dired-filter)
+(use-package! dired-narrow)
+(use-package! dired-subtree)
+(use-package! dired-sidebar)
+(use-package! dired-launch)
+(use-package! org-roam-bibtex
+  :hook (org-roam-mode . org-roam-bibtex-mode)
+  :bind (:map org-mode-map
+          (("C-c n a" . orb-note-actions))))
+(use-package! helm-bibtex
+  :config
+  (setq bibtex-completion-bibliography
+        (concat org-directory "/bib/bibliography.bib")))
 
+(use-package! org-ref
+  :config
+  (setq
+   org-ref-bibliography-notes (concat org-directory "/bib/notes.org")
+   org-ref-default-bibliography bibtex-completion-bibliography
+   org-ref-pdf-directory (concat org-directory "/bib/pdfs/")))
+(use-package! bibtex-completion
+  :config
+  (setq bibtex-completion-library-path (list (concat org-directory "/bib/pdfs/"))
+        bibtex-completion-pdf-field "file"))
 
-;; (after! helm
-;;   (helm-autoresize-mode 1)
-;;   (remove-hook 'helm-after-initialize-hook '+helm|hide-mode-line)
-;;   (advice-remove 'helm-display-mode-line '+helm|hide-mode-line))
+(setq deft-directory org-roam-directory)
+(setq reftex-default-bibliography bibtex-completion-bibliography)
+(setq +latex-viewers '(pdf-tools))
 
 (add-hook! eshell-mode
   (company-mode 1))
 
-;(advice-add 'helpful-update :after #'elisp-demos-advice-helpful-update)
-
-(add-hook 'dired-mode-hook 'turn-on-dired-filter-mode)
-
-;;(linum-mode 0)
-
-;; (when macosx-p
-;;   (set-exec-path-from-shell-PATH))
-
-
-;;(add-hook! 'prog-mode-hook #'save-prog-major-mode)
-
-;; (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
-
-;; (set-company-backend! 'css-mode 'company-lsp)
-
-;; (cljr-add-keybindings-with-prefix "C-c C-m")
-;; (setq cljr-warn-on-eval nil)
-
-;;(doom-modeline-mode)
+;; which-key
+(after! which-key
+  (setq which-key-idle-delay 0.1))
 
 ;; Paredit mode
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
@@ -60,17 +60,61 @@
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 (add-hook 'clojure-mode-hook           #'enable-paredit-mode)
 
-;; digsetif latex lsp server
-;; (require 'lsp-mode)
-;; (lsp-register-client
-;;  (make-lsp-client :new-connection (lsp-stdio-connection "digestif")
-;;                   :major-modes '(latex-mode plain-tex-mode)
-;;                   :server-id 'digestif))
-;; (add-to-list 'lsp-language-id-configuration '(latex-mode . "latex"))
-;; (add-to-list 'lsp-language-id-configuration '(plain-tex-mode . "plaintex"))
+
+
+(add-hook 'company-completion-started-hook 'ans/set-company-maps)
+(add-hook 'company-completion-finished-hook 'ans/unset-company-maps)
+(add-hook 'company-completion-cancelled-hook 'ans/unset-company-maps)
+
+(defun ans/unset-company-maps (&rest unused)
+"Set default mappings (outside of company).
+Arguments (UNUSED) are ignored."
+(general-def
+:states 'insert
+:keymaps 'override
+"<up>" nil
+"<down>" nil
+"C-j" nil
+"C-k" nil
+"C-h" nil
+"C-s" nil
+"RET" nil
+[return] nil))
+
+(defun ans/set-company-maps (&rest unused)
+"Set maps for when you're inside company completion.
+Arguments (UNUSED) are ignored."
+(general-def
+:states 'insert
+:keymaps 'override
+"<down>" 'company-select-next
+"<up>" 'company-select-previous
+"C-j" 'company-select-next
+"C-h" 'company-show-doc-buffer
+"C-k" 'company-select-previous
+"C-s" 'company-filter-candidates
+"RET" 'company-complete
+[return] 'company-complete))
+
+(setq rustic-lsp-server 'rust-analyzer)
+(setq lsp-keymap-prefix "C-l")
+(setq lsp-ui-doc-max-height 150)
+(setq lsp-ui-doc-max-width 150)
 
 (eval-after-load "tex"
   '(setcdr (assoc "LaTeX" TeX-command-list)
           '("%`%l%(mode) -shell-escape%' %t"
           TeX-run-TeX nil (latex-mode doctex-mode) :help "Run LaTeX")
     ))
+
+(setq utop-command "opam config exec -- dune utop . -- -emacs")
+;; (after! lsp-python-ms
+;;   (set-lsp-priority! 'mspyls 1))
+
+(use-package lsp-haskell
+  :ensure t
+  :config
+  (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
+  ;; Comment/uncomment this line to see interactions between lsp client/server.
+  ;;(setq lsp-log-io t)
+  )

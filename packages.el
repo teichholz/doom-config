@@ -7,4 +7,8 @@
 (package! dired-subtree)
 (package! dired-sidebar)
 (package! dired-launch)
+(package! bibtex-completion)
+(package! helm-bibtex)
+(package! org-roam-bibtex)
+(package! org-ref)
 (package! company-prescient :disable t)

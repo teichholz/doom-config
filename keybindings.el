@@ -5,26 +5,17 @@
       ;; Universelle Argument in helm buffern
       (:map helm-map
         "C-u" #'universal-argument
-        "<tab>" #'helm-select-action)
+        ;;"<tab>" #'helm-select-action
+        )
+      (:map helm-find-files-map
+        "<tab>" 'helm-ff-TAB
+       )
 
       ;; Undo Tree
-      :n "U" #'undo-tree-redo
+      :n "U" #'undo-fu-only-redo
 
       ;; Hippie expand
       :i "M-e" 'hippie-expand
-
-      ;; Hydras
-      (:prefix "H-h"
-       :n "H-w" #'jp-window/body
-       :n "H-c" #'hydra-flycheck/body
-       :n "H-f" #'hydra-flycheck/body)
-
-      (:map prog-mode-map
-       :n "H-l" #'hydra-lsp/body)
-
-      (:map projectile-mode-map
-       :n "H-p" #'hydra-projectile/body)
-
 
       ;; Pasting
       :i "M-v" #'evil-paste-before
@@ -55,15 +46,6 @@
  :n "H-j" 'evil-scroll-line-down
  :n "H-k" 'evil-scroll-line-up)
 
-;; Eigenes Prefix fuer dies und das
-(map!
- :map prog-mode-map
- :prefix "q"
- :n "q" 'evil-record-macro
- :n "c" 'avy-goto-char
- :n "s" 'helm-swoop
- :n "f" 'format-all-buffer
- :n "w" 'jp-window/body)
 
 (map!
  :n "*" 'symbol-overlay-put)
@@ -140,6 +122,18 @@
  :map paredit-mode-map
  :ni "C-k" #'paredit-kill)
 
+;; Org
+
+(map!
+ :leader
+ :desc "Orb actions" "n r a" #'orb-note-actions
+ :desc "Org-ref cite" "n R i" #'org-ref-insert-cite-with-completion
+ :desc "Org-ref crossref" "n R c" #'crossref-add-bibtex-entry
+ :desc "Org-ref hydra" "n R h" #'org-ref-bibtex-hydra/body
+ :desc "Org-ref doi" "n R d" #'doi-add-bibtex-entry
+ :desc "Helm bibtex" "n R b" #'helm-bibtex
+ )
+
 (map!
  :map org-mode-map
  :prefix "M-SPC"
@@ -154,3 +148,13 @@
    :n "a" 'helm-org-agenda-files-headings
    :n "b" 'helm-org-in-buffer-headings
    :n "p" 'helm-org-parent-headings))
+
+(map!
+ :map tuareg-mode-map
+ :n ", c" 'own/run-compiler)
+
+(map!
+ :i "C-M-o" 'own/oe
+ :i "C-M-a" 'own/ae
+ :i "C-M-u" 'own/ue
+ :i "C-M-s" 'own/ss)

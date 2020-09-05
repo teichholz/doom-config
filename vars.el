@@ -1,26 +1,3 @@
-;;; ~/.doom.d/vars.el -*- lexical-binding: t; -*-
-(defvar home (getenv "HOME"))
-(defvar macosx-p (string-match "darwin" (symbol-name system-type)))
-
-(setq mac-command-modifier 'meta
-      mac-right-option-modifier 'hyper)
-(if (equal (expand-file-name "~") "/Users/tim")
-    (setq mac-option-modifier  nil))
-  ;; (setq mac-option-modifier 'super)
-
-
-
-;; (setq
-;;  helm-autoresize-min-height 45
-;;  helm-autoresize-max-height 45
-;;  helm-display-header-line t
-;;  helm-mode-line-string "\
-;;     \\<helm-map>\
-;;     \\[helm-help]:Help \
-;;     \\[helm-select-action]:Act \
-;;     \\[helm-maybe-exit-minibuffer]/\
-;;     f1/f2/f-n:NthAct
-;;     \\[helm-toggle-suspend-update]:Tog.suspend"
 ;;  helm-ff-auto-update-initial-value t
 ;;  helm-find-files-doc-header " (\\<helm-find-files-map>\\[helm-find-files-up-one-level]: Go up one level)"
 ;;  helm-display-buffer-height 50
@@ -28,10 +5,6 @@
 
 
 
-(when macosx-p
-  (setq
-   helm-locate-recursive-dirs-command "mdfind -onlyin %s %s"
-   helm-locate-command "mdfind -name '%s' %s"))
 
 (setq tab-always-indent 'complete)
 
@@ -47,7 +20,7 @@
 (when (display-graphic-p)
   (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
 
-
+(setq display-line-numbers 'relative)
 (setq lsp-ui-sideline-ignore-duplicate t)
 (setq lsp-ui-sideline-enable nil)
 ;; (setq lsp-ui-doc-mode nil
@@ -57,15 +30,14 @@
 ;;       lsp-enable-symbol-highlighting nil
 ;;       lsp-ui-doc-max-height '25)
 ;; (setq lsp-eldoc-enable-hover nil)
-(setq company-lsp-cache-candidates 'auto)
+
+;; TODO evtl. aendern
+;; (setq company-lsp-cache-candidates 'auto)
+
 ;; (setq lsp-ui-mode-hook 'turn-off-lsp-ui-doc)
 ;; (after! lsp-ui
 ;;   (lsp-ui-doc-mode 0))
 
-
-(setq nswbuff-exclude-buffer-regexps '("^ .*" "^\\*.*\\*"))
-(setq nswbuff-clear-delay 1)
-(setq nswbuff-buffer-list-function #'+workspace-buffer-list)
 
 (setq evil-echo-state nil)
 
@@ -103,11 +75,11 @@
         ("odt" ("libreofficedev5.3" "abiword"))
         ("pdf" ("Adobe Acrobat Reader DC"))))
 
-(setenv "PKG_CONFIG_PATH" "/usr/local/lib/pkgconfig:/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig")
+;; (setenv "PKG_CONFIG_PATH" "/usr/local/lib/pkgconfig:/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig")
 
 (setq treemacs-width 25)
 
-(setq org-directory (expand-file-name "~/Documents/org"))
+(setq org-directory (expand-file-name "~/Dokumente/org"))
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq +org-code-file (concat org-directory "/code.org"))
 (setq org-startup-with-inline-images t)
@@ -124,29 +96,20 @@
 (setq org-noter-notes-window-location "Vertical"
       org-noter-doc-split-fraction '(0.8 . 0.8))
 
-;; visuell angenehm, da macos
-(if (eql system-type "darwin")
-    (menu-bar-mode 1)
-  (menu-bar-mode 0))
+(menu-bar-mode 0)
 
 (setq doom-scratch-buffer-major-mode t)
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
-(when macosx-p
-  (set-eshell-alias! "node" (concat home "/.nvm/versions/node/v12.2.0/bin/node $1"))
-  (setq nodejs-repl-command (concat home "/.nvm/versions/node/v12.2.0/bin/node")))
-
 (setq magit-git-executable "/usr/bin/git")
-
-
-(setq parinfer-extensions
-      '(defaults
-        pretty-parens
-        paredit
-        smart-tab
-        smart-yank))
 
 (setq enable-local-variables :all)
 (setq latex-run-command "latex -shell-escape")
 
+
+(setq haskell-process-type 'stack-ghci)
+(setq haskell-process-args-stack-ghci '("--ghci-options=-ferror-spans"))
+
+
+(setq haskell-compile-cabal-build-command "stack run")
