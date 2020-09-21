@@ -10,15 +10,15 @@
 (load! "./keybindings.el")
 (load! "./functions.el")
 ;;(load! "./documentation.el")
-(load! "./packages/llvm-mode.el")
+;; (load! "./packages/llvm-mode.el")
 
 
 (use-package! symbol-overlay)
-(use-package! dired-filter)
-(use-package! dired-narrow)
-(use-package! dired-subtree)
-(use-package! dired-sidebar)
-(use-package! dired-launch)
+;; (use-package! dired-filter)
+;; (use-package! dired-narrow)
+;; (use-package! dired-subtree)
+;; (use-package! dired-sidebar)
+;; (use-package! dired-launch)
 (use-package! org-roam-bibtex
   :hook (org-roam-mode . org-roam-bibtex-mode)
   :bind (:map org-mode-map
@@ -38,6 +38,12 @@
   :config
   (setq bibtex-completion-library-path (list (concat org-directory "/bib/pdfs/"))
         bibtex-completion-pdf-field "file"))
+;; (use-package! flymake-hlint
+;;   :config
+;;   (add-hook 'haskell-mode-hook 'flymake-hlint-load))
+;; (use-package! hindent
+;;   :config
+;;   (add-hook 'haskell-mode-hook 'hindent-mode))
 
 (setq deft-directory org-roam-directory)
 (setq reftex-default-bibliography bibtex-completion-bibliography)

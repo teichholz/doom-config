@@ -158,3 +158,19 @@
  :i "C-M-a" 'own/ae
  :i "C-M-u" 'own/ue
  :i "C-M-s" 'own/ss)
+
+;; (map!
+;;  :map haskell-mode-map
+;;  :n ", f" 'hindent-reformat-buffer)
+
+(map!
+ :map ranger-normal-mode-map
+ "S" '+eshell/toggle)
+
+(map!
+ :map doom-leader-map
+ "f F" 'counsel-file-jump)
+
+(map!
+ :n "L" 'evil-end-of-line
+ :n "H" 'evil-beginning-of-line)

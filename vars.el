@@ -13,7 +13,7 @@
 (setq evil-escape-key-sequence "fd")
 
 (setq doom-localleader-key ",")
-(setq doom-font (font-spec :family "Source Code Pro" :size 22))
+(setq doom-font (font-spec :family "Iosevka Extended" :size 22))
 (setq doom-theme 'doom-one)
 
 (prefer-coding-system 'utf-8-unix)
@@ -113,3 +113,5 @@
 
 
 (setq haskell-compile-cabal-build-command "stack run")
+
+(setq ispell-dictionary "de_DE")
