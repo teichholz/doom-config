@@ -157,9 +157,10 @@
  :i "C-M-o" 'own/oe
  :i "C-M-a" 'own/ae
  :i "C-M-u" 'own/ue
- :i "C-M-s" 'own/ss)
+ :i "C-M-s" 'own/ss
+ :i "C-M-e" 'hippie-expan)
 
-;; (map!
+;; (MAP!
 ;;  :map haskell-mode-map
 ;;  :n ", f" 'hindent-reformat-buffer)
 
@@ -173,4 +174,5 @@
 
 (map!
  :n "L" 'evil-end-of-line
- :n "H" 'evil-beginning-of-line)
+ :n "H" 'evil-beginning-of-line
+ :n "C-k" 'join-line)

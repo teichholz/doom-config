@@ -115,3 +115,6 @@
 (setq haskell-compile-cabal-build-command "stack run")
 
 (setq ispell-dictionary "de_DE")
+
+(add-hook! haskell-mode
+  (setq! evil-shift-width 2))
