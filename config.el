@@ -64,3 +64,9 @@ Arguments (UNUSED) are ignored."
 
 
 (setq +lookup-provider-url-alist (cons '("Hoogle" "https://hoogle.haskell.org/?hoogle=%s") +lookup-provider-url-alist))
+
+
+(when (doom-module-p ':lang 'python)
+  (setq lsp-pyright-use-library-code-for-types t)
+   ;; use type stubs for vtk module
+  (setq lsp-pyright-stub-path (concat (getenv "HOME") "/git/python-type-stubs/")))

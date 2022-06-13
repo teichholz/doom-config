@@ -28,7 +28,3 @@
 (map!
  :map (c++-mode-map c-mode-map)
  :n "g o" 'ff-find-other-file)
-
-(map!
- ;; :i "(" 'own/open-paren
- :i "{" 'own/open-brace)

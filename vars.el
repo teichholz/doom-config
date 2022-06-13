@@ -12,10 +12,6 @@
 (setq doom-font (font-spec :family "Iosevka Extended" :size 24))
 (setq doom-theme 'doom-one)
 
-(prefer-coding-system 'utf-8-unix)
-(when (display-graphic-p)
-  (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)))
-
 (setq display-line-numbers 'relative)
 
 (setq evil-echo-state nil)
@@ -27,8 +23,8 @@
 (setq org-directory (expand-file-name "~/doc/org"))
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq +org-code-file (concat org-directory "/code.org"))
-(setq org-roam-directory "~/doc/org/roam"
-      org-roam-graph-viewer "qutebrowser"
+(setq org-roam-directory (concat org-directory "/roam")
+      org-roam-graph-viewer "chromium"
       deft-directory org-roam-directory)
 (setq org-startup-with-inline-images t)
 
@@ -62,3 +58,21 @@
 
 (after! treemacs
   (setq treemacs-collapse-dirs 3))
+
+(defun own/latex-scale ()
+  (let ((amount text-scale-mode-amount))
+    (if (>= amount 1)
+        (+ amount 1.3)
+      2.3)))
+
+(defun own/set-latex-scale ()
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale (own/latex-scale))))
+
+;; Change latex preview scala when font size increases
+(advice-add 'text-scale-increase
+            :after
+            (lambda (&rest r) (own/set-latex-scale)))
+
+(add-hook 'org-mode-hook #'own/set-latex-scale)
+
+(setq org-startup-with-latex-preview 't)
