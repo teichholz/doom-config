@@ -9,7 +9,7 @@
 (setq company-show-numbers t)
 
 (setq doom-localleader-key ",")
-(setq doom-font (font-spec :family "Iosevka Extended" :size 24))
+;; (setq doom-font (font-spec :family "Iosevka Extended" :size 24))
 (setq doom-theme 'doom-one)
 
 (setq display-line-numbers 'relative)
@@ -20,7 +20,7 @@
       confirm-kill-processes nil)
 
 
-(setq org-directory (expand-file-name "~/doc/org"))
+(setq org-directory (expand-file-name "~/org"))
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq +org-code-file (concat org-directory "/code.org"))
 (setq org-roam-directory (concat org-directory "/roam")
@@ -75,4 +75,9 @@
 
 (add-hook 'org-mode-hook #'own/set-latex-scale)
 
-(setq org-startup-with-latex-preview 't)
+(setq org-startup-with-latex-preview t)
+(setq org-startup-with-inline-images t)
+(setq org-export-use-babel nil)
+
+(setq org-babel-default-header-args:sage '((:session . t)
+                                           (:results . "output")))

@@ -12,5 +12,9 @@
 ;; (package! org-roam-bibtex)
 ;; (package! org-ref)
 ;; (package! company-prescient :disable t)
-(package! flymake-hlint)
-(package! hindent)
+;; (package! flymake-hlint)
+;; (package! hindent)
+;; (package! sage-shell-mode)
+
+(straight-use-package 'sage-shell-mode)
+(straight-use-package 'ob-sagemath)

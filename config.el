@@ -2,9 +2,9 @@
 ;; (fset 'battery-update #'ignore)
 
 (load! "./vars.el")
+(load! "./packages.el")
 (load! "./functions.el")
 (load! "./keybindings.el")
-
 
 (setq deft-directory org-roam-directory)
 (setq +latex-viewers '(pdf-tools))
@@ -70,3 +70,4 @@ Arguments (UNUSED) are ignored."
   (setq lsp-pyright-use-library-code-for-types t)
    ;; use type stubs for vtk module
   (setq lsp-pyright-stub-path (concat (getenv "HOME") "/git/python-type-stubs/")))
+

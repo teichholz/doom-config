@@ -28,3 +28,11 @@
 (map!
  :map (c++-mode-map c-mode-map)
  :n "g o" 'ff-find-other-file)
+
+(map!
+ :after sage-shell-mode
+ :map sage-shell-mode-map
+  "<C-M-return>" 'sage-shell-blocks:send-current)
+
+(with-eval-after-load "org"
+  (define-key org-mode-map (kbd "C-c c") 'ob-sagemath-execute-async))
